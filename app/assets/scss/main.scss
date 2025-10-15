@@ -1,0 +1,328 @@
+@use "sass:math";
+@use "sass:color";
+@use "./_colors.scss" as *;
+
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Roboto", sans-serif;
+    color:#333;
+    overflow-x: hidden;
+}
+main {
+    flex-grow: 1;
+    padding: 4rem;
+    background-color: rgb(247, 253, 250);
+
+    article {
+        header {
+
+             max-width: 800px;
+                margin: 0 auto;
+                line-height: 1.6;
+                font-size: 1.1rem;
+                color: $primary;
+
+                figure {
+                    margin: 1rem 0;
+                    text-align: left;
+                    font-size:0.3rem;
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                    }
+
+                    figcaption {
+                        font-size: 0.7rem;
+                        color: $secondary;
+                        margin-top: 0.5rem;
+                    }
+                }
+
+
+            h1 {
+                color: $primary;
+            }
+            h3{
+                color: $primary_lighter;
+                margin-bottom:0;
+            }
+            h4 {
+                margin:0;
+                font-size:0.77rem;
+                font-style: italic;
+            }
+            ul {
+                list-style: none;
+                padding: 0;
+                color: $primary;
+                line-height: 1.5rem;
+                font-size: 0.777rem;
+                margin-bottom: 1.5rem;
+            }
+            span {
+                font-weight: bold;
+                color: $primary;
+                font-size: 0.7rem;
+            }
+            p {
+                color: $primary;
+                margin: 1.5rem 0;
+                font-size:0.77rem;
+
+            }
+        }
+
+        section {
+            &.main_text {
+                max-width: 800px;
+                margin: 0 auto;
+                line-height: 1.6;
+                font-size: 1.1rem;
+                color: $primary;
+
+                h2, h3 {
+                    color: $primary;
+                    margin-top: 2rem;
+                }
+
+                p {
+                    margin-bottom: 1rem;
+                }
+
+                blockquote {
+                    border-left: 4px solid $primary;
+                    padding-left: 1rem;
+                    color: $secondary;
+                    font-style: italic;
+                    margin: 1rem 0;
+                    background-color: red;
+                }
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                    display: block;
+                    margin: 1rem auto;
+                }
+            }
+
+            &.footnotes_section {
+                max-width: 800px;
+                margin: 2rem auto 0 auto;
+                padding-top: 1rem;
+                border-top: 1px solid #ccc;
+
+                .footnotes {
+                    h2 {
+                        font-size: 1.2rem;
+                        margin-bottom: 0.5rem;
+                        color: $primary;
+                    }
+
+                    ol {
+                        padding-left: 1.5rem;
+
+                        li {
+                            margin-bottom: 0.5rem;
+                            font-size: 0.9rem;
+                            color: $primary;
+                        }
+                    }
+                }
+            }
+
+            &.bibliographic_references {
+                max-width: 800px;
+                margin: 2rem auto 0 auto;
+                padding-top: 1rem;
+                border-top: 1px solid #ccc;
+
+                h2 {
+                    font-size: 1.2rem;
+                    margin-bottom: 0.5rem;
+                    color: $primary;
+                }
+
+                ol {
+                    padding-left: 1.5rem;
+
+                    li {
+                        margin-bottom: 0.5rem;
+                        font-size: 0.9rem;
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  
+  button {
+    width: 100%;
+  }
+}
+
+header {
+    nav {
+        display: flex;
+        justify-content: flex-end;
+        
+        div {
+            margin: 1rem;
+        }
+
+        a {
+            cursor: pointer;
+            &:link {
+                text-decoration: none;
+                color: $topnav_link;
+            }
+            &:active {
+                text-decoration: none;
+                color: $topnav_active;
+            }
+            &:visited {
+                text-decoration: none;
+                color: $topnav_link;
+            }
+            &:hover {
+                text-decoration: none;
+                color: $topnav_hover;
+            }
+        }
+    }
+}
+
+.main_container {
+    display: flex;
+    min-height: 100vh;
+    min-width: 100%;
+
+    .left {
+        min-width: calc(fit-content + 100px);
+        background-color: $nav_background;
+        background: linear-gradient(0deg,$primary_darker 0%, $primary 100%);
+
+        nav {
+            a{
+                &:link {
+                    text-decoration: none;
+                    color: $link;
+                }
+                &:active {
+                    text-decoration: none;
+                    color: $active;
+                }
+                &:visited {
+                    text-decoration: none;
+                    color: $visited;
+                }
+                &:hover {
+                    text-decoration: none;
+                    color: $hover;
+                }
+            }
+
+
+            ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            li {
+                line-height: 1.888rem;
+                color:aquamarine
+
+
+            }
+            padding: 2rem;
+        }
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow-x: hidden;
+    }
+}
+
+.default_table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+
+        thead {
+            th {
+                background-color: #d7d7d7;
+                padding: 0.5rem;
+                text-align: left;
+                color: $primary;
+            }
+        }
+
+        tbody {
+            tr {
+                &:hover {
+                    background-color: #f0f0f0;
+                }
+
+                td {
+                    text-align: left;
+                    padding: 0.8rem;
+                    border-bottom: 1px solid #ddd;
+
+                    a {
+                        color: red;
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    button {
+                        font-size: 0.8rem;
+                        color: white;
+                        border: none;
+                        padding: 0.5rem 1rem;
+                        cursor: pointer;
+                        border-radius: 4px;
+
+                        &.btn-danger {
+                            background-color: $error;
+                        }
+
+                        &:hover {
+                            background-color: $primaryDarkHover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

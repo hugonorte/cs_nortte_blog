@@ -1,0 +1,45 @@
+ @use "sass:color";
+// ========
+//   BASIC
+// ========
+$primary :#0f394d;
+$secondary :#161f24;
+$white :#ffffff;
+$black :#000000;
+$error :#6d0909;
+$success :#096d36;
+// ========
+//   BASIC DARKER
+// ========
+$primary_darker :#061218;
+$secondary_darker :#0b0f11;
+// ========
+//   BASIC LIGHTER
+// ========
+$primary_lighter :color-mix(in srgb, $primary 75%, $white 25%);
+$secondary_lighter :color-mix(in srgb, $secondary 75%, $white 25%);
+
+// ========
+//   BASIC ON HOVER
+// ========
+$primaryLightHover :color-mix(in srgb, $primary 75%, $white 25%);
+$primaryDarkHover :color-mix(in srgb, $primary 80%, $black 20%);
+$secondaryLightHover :color-mix(in srgb, $secondary 75%, $white 25%);
+$secondaryDarkHover :color-mix(in srgb, $secondary 80%, $black 20%);
+
+// ========
+//   SIDE NAV
+// ========
+$link :color-mix(in srgb, $primary 20%, white 80%);
+$visited :color-mix(in srgb, $primary 30%, white 70%);
+$hover :color-mix(in srgb, $primary 40%, white 60%);
+$active :$link;
+$nav_background : $primary;
+
+// ============
+//   TOP NAV
+// ============
+$topnav_link: color.mix($secondary, $white, 80%);
+$topnav_active: $topnav_link;
+$topnav_visited: color.mix($secondary, $white, 90%);
+$topnav_hover: color.mix($secondary, $white, 50%);;
