@@ -13,5 +13,12 @@ export default defineNuxtConfig({
         }
       }
     }
-  }
+  },
+  runtimeConfig: {
+    public: {
+        apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'https://admin.abertamente.net/api',
+        siteName: process.env.NUXT_PUBLIC_SITE_NAME,
+        publicImagesFolder: process.env.NUXT_PUBLIC_IMAGES_FOLDER || 'images',
+    }
+  },
 })

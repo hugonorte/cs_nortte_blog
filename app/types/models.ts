@@ -3,6 +3,80 @@ export interface User {
   email?: string
   email_verified_at?: string | Date | null
   id?: number
+  first_name?: string
+  last_name?: string
+  updated_at?: string | Date
+}
+
+export interface Post {
+  id?: number
+  title?: string
+  tldr?: string
+  content?: string
+  image_path?: string
+  author_id?: number
+  category_id?: number
+  published_at?: string | Date
+  status?: string
+  created_at?: string | Date
+  updated_at?: string | Date
+  deleted_at?: string | Date
+}
+
+export interface PostContent {
+  id?: number
+  title?: string
+  tldr?: string
+  content?: string
+  image_path?: string
+  author_id?: number
+  author_main_title?: string
+  author_preferred_social_network?: string
+  author_preferred_social_network_username?: string
+  author_bio?: string
+  category_id?: number
+  category_name?: string
+  author_name?: string
+  published_at?: string | Date
+  status?: string
+  created_at?: string | Date
+  updated_at?: string | Date
+  deleted_at?: string | Date
+}
+
+export interface Category {
+  id?: number
   name?: string
+  created_at?: string | Date
+  updated_at?: string | Date
+  deleted_at?: string | Date
+}
+
+export interface Author {
+  id?: number
+  name?: string
+  email?: string
+  bio?: string
+  main_title?: string
+  preferred_social_network?: string
+  preferred_social_network_username?: string
+  created_at?: string | Date
+  updated_at?: string | Date
+  deleted_at?: string | Date
+}
+
+export interface BibliographicReference {
+  id?: number
+  post_id?: number
+  description?: string
+  created_at?: string | Date
+  updated_at?: string | Date
+}
+
+export interface Footnote {
+  id?: number
+  post_id?: number
+  description?: string
+  created_at?: string | Date
   updated_at?: string | Date
 }
