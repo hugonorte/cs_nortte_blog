@@ -11,9 +11,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="postList">
+  <section class="postList" aria-label="Últimas postagens">
     <PostCard v-for="post in Posts" :key="post.id" :post="post" />
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

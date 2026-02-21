@@ -1,9 +1,9 @@
 <template>
-  <div class="hero_container">
+  <section class="hero_container" aria-label="Destaque">
       <h1>
           Saúde Física e Mental <br >em um só Lugar
       </h1>
-    </div>  
+    </section>  
 </template>
 
 <style scoped lang="scss">
