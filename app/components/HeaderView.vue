@@ -2,12 +2,10 @@
 console.log("Header View")
 </script>
 <template>
-    <div class="header_container">
+    <header>
         <div class="logo">
-            <img src="~/assets/img/logo_negativo.svg" alt="">
+            <img src="~/assets/img/logo_principal.svg" alt="">
             <!-- <NuxtImg src="~/assets/img/logo_negativo.svg" /> -->
-            
-
             <nav>
                 <ul>
                     <li>
@@ -16,28 +14,20 @@ console.log("Header View")
                     <li>
                         <NuxtLink to="/posts">Posts</NuxtLink>
                     </li>
-                    <li>
-                        <NuxtLink to="/about">About</NuxtLink>
-                    </li>
-                    <li>
-                        <NuxtLink to="/contact">Contact</NuxtLink>
-                    </li>
+                   
                 </ul>
             </nav>
         </div>
-    </div>
+    </header>
 </template>
 
 <style scoped lang="scss">
-.header_container {
+header {
     width: 100%;
-    
-    height: 80px;
-    background-color: #034f04;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     .logo {
         width: 90%;
         height: 100%;
@@ -56,11 +46,11 @@ console.log("Header View")
                 li {
                     a {
                         text-decoration: none;
-                        color: white;
+                        color: rgb(38, 116, 44);
                         font-weight: bold;
                         font-size: 18px;
                         &:hover {
-                            color: #baffba;
+                            color: #385238;
                         }
                     }
                 }
