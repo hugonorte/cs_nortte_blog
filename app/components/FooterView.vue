@@ -20,10 +20,10 @@ console.log("footer")
                         <NuxtLink to="/posts">Posts</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/about">Categorias</NuxtLink>
+                        <NuxtLink to="/">Categorias</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/contact">Manifesto</NuxtLink>
+                        <NuxtLink to="/">Manifesto</NuxtLink>
                     </li>
                 </ul>
             </div>
@@ -33,16 +33,16 @@ console.log("footer")
             <div>
                 <ul>
                     <li>
-                        <NuxtLink to="/about">Sobre</NuxtLink>
+                        <NuxtLink to="/">Sobre</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/contact">Contato</NuxtLink>
+                        <NuxtLink to="/">Contato</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/about">Termos de uso</NuxtLink>
+                        <NuxtLink to="/">Termos de uso</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/contact">Política de Privacidade</NuxtLink>
+                        <NuxtLink to="/">Política de Privacidade</NuxtLink>
                     </li>
                 </ul>
             </div>
@@ -75,7 +75,6 @@ console.log("footer")
         color: #93c2a4;
         line-height: 1.5rem;
         font-size: 0.7rem;
-
     }
 
     a {
