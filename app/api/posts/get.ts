@@ -8,6 +8,27 @@ interface PostData {
     post: Post;
 }
 
+export async function fetchPublishedPosts() {
+    const options = {
+        method: 'GET' as 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        } as Record<string, string>,
+    };
+
+    try {
+        //api/post/published
+        const response = await $fetch<Post[]>(`${apiUrl}/post/published`, options)
+        return response
+    }
+    catch (error) {
+        throw createError({
+            statusCode: 500,
+            statusMessage: 'API Erro ao buscar posts',
+        })
+    }
+}
+
 export async function fetchPosts() {
     const auth = useAuth()
     const token = auth.token.value
