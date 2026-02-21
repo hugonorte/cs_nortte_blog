@@ -47,25 +47,25 @@ console.log("footer")
                 </ul>
             </div>
         </div>
+        <div class="copyright">
+            <p>&copy; 2026 Abertamente. Todos os direitos reservados.</p>
+        </div>
     </div>
 
-    <div class="copyright">
-        <p>&copy; 2026 Abertamente. Todos os direitos reservados.</p>
-    </div>
 </template>
 
 <style scoped lang="scss">
+
 .footer_container {
     background: #034F04;
     background: linear-gradient(0deg, rgb(0, 9, 0) 0%, rgb(2, 42, 14) 100%);
-    padding: 2.5rem;
     text-align: center;
-    min-height: 20vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: fit-content;
 
     ul {
         list-style: none;
@@ -137,7 +137,7 @@ console.log("footer")
     font-size: 0.7rem;
     width: 100%;
     background: #011303;
-    padding: 1rem;
+    padding: 1rem 0;
     max-height: 8px;
     display: flex;
     align-items: center;
