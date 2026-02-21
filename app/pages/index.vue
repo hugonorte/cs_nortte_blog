@@ -1,38 +1,10 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import type { Post } from '~/types/models';
-import { fetchPublishedPosts } from '~/api/posts/get';
-
 definePageMeta({
   layout: 'home'
 });
-
-const Posts = ref<Post[]>([])
-
-onMounted(async () => {
-  Posts.value = await fetchPublishedPosts()
-  console.log(Posts.value)
-})
 </script>
 
 <template>
   <Hero />
-  <div class="postList">
-    <PostCard v-for="post in Posts" :key="post.id" :post="post" />
-  </div>
+  <Posts />
 </template>
-
-<style scoped lang="scss">
-.postList {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 2rem;
-  gap: 2rem;
-
-  @media (max-width: 584px) {
-    justify-content: center;
-  }
-}
-</style>
