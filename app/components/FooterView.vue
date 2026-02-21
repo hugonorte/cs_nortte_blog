@@ -1,7 +1,3 @@
-<script setup lang="ts">
-console.log("footer")
-</script>
-
 <template>
     <div class="footer_container">
         <div class="footer-links">

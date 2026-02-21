@@ -1,6 +1,3 @@
-<script setup lang="ts">
-console.log("Header View")
-</script>
 <template>
     <header>
         <div class="logo">
