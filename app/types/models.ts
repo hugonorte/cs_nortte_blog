@@ -23,6 +23,17 @@ export interface Post {
   deleted_at?: string | Date
 }
 
+export interface PostCard {
+  id?: number
+  title?: string
+  slug?: string
+  tldr?: string
+  image_path?: string
+  created_at?: string | Date
+  author_name?: string
+  category_name?: string
+}
+
 export interface PostContent {
   id?: number
   title?: string
