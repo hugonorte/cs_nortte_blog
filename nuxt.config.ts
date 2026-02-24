@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/image',
     '@nuxtjs/seo',
+    '@nuxt/scripts',
   ],
   css: ['~/assets/scss/main.scss'],
   vite: {
@@ -54,6 +55,7 @@ export default defineNuxtConfig({
         apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'https://admin.abertamente.net/api',
         siteName: process.env.NUXT_PUBLIC_SITE_NAME,
         publicImagesFolder: process.env.NUXT_PUBLIC_IMAGES_FOLDER || 'images',
+        googleAnalyticsId: process.env.NUXT_PUBLIC_GOOGLE_ANALYTICS_ID,
     }
   },
 })
