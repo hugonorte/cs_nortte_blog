@@ -1,14 +1,14 @@
 import type { Post } from '~/types/models';
 import type { PostContent } from '~/types/models';
-const config = useRuntimeConfig()
-const apiUrl = config.public.apiBaseUrl;
-
 interface PostData {
     message: string;
     post: Post;
 }
 
 export async function fetchPublishedPosts() {
+    const config = useRuntimeConfig();
+    const apiUrl = config.public.apiBaseUrl;
+    
     const options = {
         method: 'GET' as 'GET',
         headers: {
@@ -30,6 +30,9 @@ export async function fetchPublishedPosts() {
 }
 
 export async function fetchPosts() {
+    const config = useRuntimeConfig();
+    const apiUrl = config.public.apiBaseUrl;
+    
     const auth = useAuth()
     const token = auth.token.value
     if (!token) {
@@ -63,6 +66,9 @@ export async function fetchPosts() {
 }
 
 export async function fetchPostsSummary() {
+    const config = useRuntimeConfig();
+    const apiUrl = config.public.apiBaseUrl;
+
     const auth = useAuth()
     const token = auth.token.value
     if (!token) {
@@ -96,6 +102,9 @@ export async function fetchPostsSummary() {
 }
 
 export async function fetchPostById(id: string) {
+    const config = useRuntimeConfig();
+    const apiUrl = config.public.apiBaseUrl;
+
     try {
         const options = {
             method: 'GET' as 'GET',
@@ -116,6 +125,9 @@ export async function fetchPostById(id: string) {
 }
 
 export async function fetchPostContentById(id: string) {
+    const config = useRuntimeConfig();
+    const apiUrl = config.public.apiBaseUrl;
+
     try {
         const options = {
             method: 'GET' as 'GET',

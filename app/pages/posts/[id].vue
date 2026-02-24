@@ -6,61 +6,57 @@ import type { PostContent, Footnote, BibliographicReference } from '../../types/
 import { fetchPostContentById } from '../../api/posts/get'
 import { fetchFootnotesByPostId } from '../../api/footnote/get'
 import { fetchBibliographicReferencesByPostId } from '../../api/bibliographicReference/get'
-import { onMounted, ref } from 'vue';
+import { computed } from 'vue';
 import { formatDate } from '../../utils/date';
+
 const config = useRuntimeConfig()
 const imgUrl = config.public.publicImagesFolder
 const { id } = useRoute().params;
-const PostContent = ref<PostContent | null>(null);
-const isLoading = ref<boolean>(true)
-const Footnotes = ref<Footnote[]>([]);
-const BibliographicReferences = ref<BibliographicReference[]>([]);
 
-onMounted(async () => {
-    try {
-        isLoading.value = true
-        PostContent.value = await fetchPostContentById(id as string);
-        Footnotes.value = await fetchFootnotesByPostId(id as string);
-        BibliographicReferences.value = await fetchBibliographicReferencesByPostId(id as string);
+const { data, status } = await useAsyncData(`post-${id}`, async () => {
+    const [post, footnotes, refs] = await Promise.all([
+        fetchPostContentById(id as string),
+        fetchFootnotesByPostId(id as string),
+        fetchBibliographicReferencesByPostId(id as string)
+    ]);
+    return { post, footnotes, refs };
+});
 
-        if (PostContent.value) {
-            useSeoMeta({
-                title: PostContent.value.title,
-                ogTitle: PostContent.value.title,
-                description: PostContent.value.tldr,
-                ogDescription: PostContent.value.tldr,
-                ogImage: `${config.public.publicImagesFolder}/${PostContent.value.image_path}`,
-                twitterCard: 'summary_large_image',
-                articleAuthor: [PostContent.value.author_name || ''],
-                articlePublishedTime: PostContent.value.created_at ? String(PostContent.value.created_at) : undefined,
-            })
+if (!data.value?.post) {
+    throw createError({ statusCode: 404, statusMessage: 'Post não encontrado' })
+}
 
-            useHead({
-                script: [
-                    {
-                        type: 'application/ld+json',
-                        innerHTML: JSON.stringify({
-                            '@context': 'https://schema.org',
-                            '@type': 'BlogPosting',
-                            headline: PostContent.value.title,
-                            image: `${config.public.publicImagesFolder}/${PostContent.value.image_path}`,
-                            author: {
-                                '@type': 'Person',
-                                name: PostContent.value.author_name,
-                            },
-                            datePublished: PostContent.value.created_at,
-                            description: PostContent.value.tldr,
-                        }),
-                    },
-                ],
-            })
-        }
-    } catch (error) {
-        console.error(error)
-    } finally {
-        isLoading.value = false
-    }
-})
+const PostContent = computed(() => data.value?.post);
+const Footnotes = computed(() => data.value?.footnotes || []);
+const BibliographicReferences = computed(() => data.value?.refs || []);
+const isLoading = computed(() => status.value === 'pending');
+
+if (PostContent.value) {
+    useSeoMeta({
+        title: PostContent.value.title,
+        ogTitle: PostContent.value.title,
+        description: PostContent.value.tldr,
+        ogDescription: PostContent.value.tldr,
+        ogImage: `${config.public.publicImagesFolder}/${PostContent.value.image_path}`,
+        twitterCard: 'summary_large_image',
+        articleAuthor: [PostContent.value.author_name || ''],
+        articlePublishedTime: PostContent.value.created_at ? String(PostContent.value.created_at) : undefined,
+    })
+
+    useSchemaOrg([
+        defineArticle({
+            headline: PostContent.value.title,
+            image: `${config.public.publicImagesFolder}/${PostContent.value.image_path}`,
+            author: [
+                {
+                    name: PostContent.value.author_name,
+                }
+            ],
+            datePublished: PostContent.value.created_at ? String(PostContent.value.created_at) : undefined,
+            description: PostContent.value.tldr,
+        })
+    ])
+}
 
 </script>
 

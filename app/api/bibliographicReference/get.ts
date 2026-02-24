@@ -1,8 +1,7 @@
 import type { BibliographicReference } from '~/types/models';
-const config = useRuntimeConfig()
-const apiUrl = config.public.apiBaseUrl;
-
 export async function fetchBibliographicReferencesByPostId(postId: string) {
+    const config = useRuntimeConfig()
+    const apiUrl = config.public.apiBaseUrl;
 
     try {
         const options = {

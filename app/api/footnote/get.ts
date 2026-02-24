@@ -1,8 +1,7 @@
 import type { Footnote } from '~/types/models';
-const config = useRuntimeConfig()
-const apiUrl = config.public.apiBaseUrl;
-
 export async function fetchFootnotesByPostId(postId: string) {
+    const config = useRuntimeConfig()
+    const apiUrl = config.public.apiBaseUrl;
 
     try {
         const options = {

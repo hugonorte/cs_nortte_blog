@@ -12,24 +12,12 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
-useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'Abertamente',
-        url: 'https://abertamente.com.br', // Replace with actual URL if known
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: 'https://abertamente.com.br/search?q={search_term_string}',
-          'query-input': 'required name=search_term_string'
-        }
-      })
-    }
-  ]
-})
+useSchemaOrg([
+  defineWebSite({
+    name: 'Abertamente'
+  }),
+  defineWebPage()
+])
 </script>
 
 <template>
