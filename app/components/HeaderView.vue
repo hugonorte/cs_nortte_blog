@@ -1,8 +1,9 @@
 <template>
     <header>
         <div class="logo">
-            <img src="~/assets/img/logo_principal.svg" alt="">
-            <!-- <NuxtImg src="~/assets/img/logo_negativo.svg" /> -->
+            <NuxtLink to="/">
+                <img src="~/assets/img/logo_principal.svg" alt="link para página inicial">
+            </NuxtLink>
             <nav>
                 <ul>
                     <li>
@@ -11,7 +12,6 @@
                     <li>
                         <NuxtLink to="/posts">Posts</NuxtLink>
                     </li>
-                   
                 </ul>
             </nav>
         </div>
