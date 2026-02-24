@@ -111,6 +111,7 @@
         align-items: center;
         width: clamp(2rem, 75vw, 35rem);
         gap: 1rem;
+        padding: 2rem;
 
         @media (max-width: 584px) {
             flex-direction: column;
