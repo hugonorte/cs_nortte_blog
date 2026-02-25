@@ -31,6 +31,23 @@ const Footnotes = computed(() => data.value?.footnotes || []);
 const BibliographicReferences = computed(() => data.value?.refs || []);
 const isLoading = computed(() => status.value === 'pending');
 
+const socialNetworkBaseUrls: Record<string, string> = {
+    Twitter: 'https://twitter.com/',
+    Instagram: 'https://instagram.com/',
+    LinkedIn: 'https://linkedin.com/in/',
+    Facebook: 'https://facebook.com/',
+    Bluesky: 'https://bsky.app/profile/',
+};
+
+const socialLink = computed(() => {
+    const network = PostContent.value?.author_preferred_social_network;
+    const username = PostContent.value?.author_preferred_social_network_username;
+    if (!network || !username) return '#';
+
+    const baseUrl = socialNetworkBaseUrls[network] || '';
+    return `${baseUrl}${username.replace('@', '')}`;
+});
+
 if (PostContent.value) {
     useSeoMeta({
         title: PostContent.value.title,
@@ -76,7 +93,7 @@ if (PostContent.value) {
                         <p class="author-bio">{{ PostContent.author_bio }}</p>
                         <p class="social-links">
                             <strong>{{ PostContent.author_preferred_social_network }}:</strong> 
-                            <a :href="`https://twitter.com/${PostContent.author_preferred_social_network_username}`" target="_blank" rel="noopener noreferrer">
+                            <a :href="socialLink" target="_blank" rel="noopener noreferrer">
                                 @{{ PostContent.author_preferred_social_network_username }}
                             </a>
                         </p>
