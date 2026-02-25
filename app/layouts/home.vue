@@ -15,17 +15,17 @@ useHead({
 </script>
 
 <template>
-  <body>
+  <div class="layout-wrapper">
     <HeaderView />
     <main>
       <slot />
     </main>
     <FooterView />
-  </body>
+  </div>
 </template>
 
 <style scoped lang="scss">
-body {
+.layout-wrapper {
   height: 100vh;
   width: 100vw;
   display: flex;
