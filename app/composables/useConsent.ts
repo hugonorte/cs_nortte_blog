@@ -12,8 +12,6 @@ export const useConsent = () => {
     const grantConsent = () => {
         consent.value = true
         localStorage.setItem('cookie_consent_granted', 'true')
-        // Aqui você dispararia a inicialização do Google Analytics
-        window.location.reload() // Recarrega para ativar scripts que dependem do consentimento
     }
 
     const declineConsent = () => {
