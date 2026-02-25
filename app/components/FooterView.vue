@@ -35,11 +35,9 @@
                         <NuxtLink to="/">Contato</NuxtLink>
                     </li>
                     <li>
-                        <NuxtLink to="/">Termos de uso</NuxtLink>
+                        <NuxtLink to="/termos-de-uso">Termos de uso</NuxtLink>
                     </li>
-                    <li>
-                        <NuxtLink to="/">Política de Privacidade</NuxtLink>
-                    </li>
+                    
                 </ul>
             </div>
         </div>
