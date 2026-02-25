@@ -7,7 +7,7 @@ const { consent, grantConsent, declineConsent } = useConsent()
         <div class="content">
             <p>
                 Utilizamos cookies para melhorar sua experiência e analisar o tráfego do site
-                conforme nossa <NuxtLink to="/privacidade">Política de Privacidade</NuxtLink>.
+                conforme nossa <NuxtLink to="/termos-de-uso">Política de Privacidade</NuxtLink>.
             </p>
             <div class="actions">
                 <button @click="declineConsent" class="btn-refuse">Recusar</button>
