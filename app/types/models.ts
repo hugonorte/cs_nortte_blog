@@ -37,6 +37,7 @@ export interface PostCard {
 export interface PostContent {
   id?: number
   title?: string
+  slug?: string
   tldr?: string
   content?: string
   image_path?: string
