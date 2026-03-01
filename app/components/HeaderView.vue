@@ -1,8 +1,8 @@
 <template>
     <header>
         <div class="logo">
-            <NuxtLink to="/">
-                <img src="~/assets/img/logo_principal.svg" alt="link para página inicial">
+            <NuxtLink to="/" aria-label="Ir para a página inicial">
+                <img src="~/assets/img/logo_principal.svg" alt="Abertamente Logo">
             </NuxtLink>
             <nav>
                 <ul>
