@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }
+      ]
+    }
+  },
   ssr: true,
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -45,10 +52,6 @@ export default defineNuxtConfig({
         console.error('Failed to fetch posts for prerendering:', error)
       }
     }
-  },
-  routeRules: {
-    // Disable indexing for admin routes
-    '/admin/**': { robots: false },
   },
   runtimeConfig: {
     public: {
