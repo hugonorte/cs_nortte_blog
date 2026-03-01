@@ -16,7 +16,7 @@ const props = defineProps<{
         <div class="postContent">
             <h3>{{ post.title }}</h3>
             <p>{{ post.tldr }}</p>
-            <NuxtLink :to="`/posts/${post.slug}`">
+            <NuxtLink :to="`/posts/${post.slug || post.id}`">
                 <button>Leia mais</button>
             </NuxtLink>
         </div>
