@@ -15,11 +15,11 @@
                     <li>
                         <NuxtLink to="/posts">Posts</NuxtLink>
                     </li>
-                    <li>
+                    <!-- <li>
                         <NuxtLink to="/">Categorias</NuxtLink>
-                    </li>
+                    </li> -->
                     <li>
-                        <NuxtLink to="/">Manifesto</NuxtLink>
+                        <NuxtLink to="/manifesto">Manifesto</NuxtLink>
                     </li>
                 </ul>
             </div>
@@ -31,9 +31,9 @@
                     <li>
                         <NuxtLink to="/">Sobre</NuxtLink>
                     </li>
-                    <li>
-                        <NuxtLink to="/">Contato</NuxtLink>
-                    </li>
+                    <!--<li>
+                        <NuxtLink to="/contato">Contato</NuxtLink>
+                    </li>-->
                     <li>
                         <NuxtLink to="/termos-de-uso">Termos de uso</NuxtLink>
                     </li>

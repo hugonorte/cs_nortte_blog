@@ -3,6 +3,7 @@ definePageMeta({
     layout: 'home'
 });
 </script>
+
 <template>
     <article>
         <h1>Termos de Uso e Política de Privacidade</h1>
@@ -102,22 +103,22 @@ definePageMeta({
 article {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 3rem;
     line-height: 1.6;
     color: #333;
 }
 
 h1 {
-    color: #2c3e50;
+    color: #41694b;
     margin-bottom: 10px;
-    font-size: 2em;
+    font-size: 1.2em;
 }
 
 h2 {
     color: #34495e;
     margin-top: 30px;
     margin-bottom: 15px;
-    font-size: 1.5em;
+    font-size: 1em;
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 5px;
 }
