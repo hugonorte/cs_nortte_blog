@@ -111,8 +111,8 @@ export async function fetchPostById(id: string, apiUrl?: string) {
     }
     catch (error: any) {
         throw {
-            statusCode: 500,
-            statusMessage: 'API Erro ao buscar o post',
+            statusCode: error.statusCode || 500,
+            statusMessage: error.statusMessage || 'API Erro ao buscar o post',
         }
     }
 }
@@ -142,8 +142,39 @@ export async function fetchPostContentById(id: string, apiUrl?: string) {
     }
     catch (error: any) {
         throw {
-            statusCode: 500,
-            statusMessage: 'API Erro ao buscar o conteúdo do post',
+            statusCode: error.statusCode || 500,
+            statusMessage: error.statusMessage || 'API Erro ao buscar o conteúdo do post',
+        }
+    }
+}
+
+export async function fetchPostContentBySlug(slug: string, apiUrl?: string) {
+    const url = apiUrl || useRuntimeConfig().public.apiBaseUrl;
+
+    try {
+        const options = {
+            method: 'GET' as 'GET',
+            credentials: 'include' as RequestCredentials,
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            } as Record<string, string>,
+        };
+
+        const response = await $fetch<PostContent>(`${url}/post/published/${slug}`, options)
+        if (!response) {
+            throw {
+                statusCode: 404,
+                statusMessage: 'Post não encontrado',
+            }
+        }
+
+        return Array.isArray(response) ? response[0] : response
+    }
+    catch (error: any) {
+        throw {
+            statusCode: error.statusCode || 500,
+            statusMessage: error.statusMessage || 'API Erro ao buscar o conteúdo do post',
         }
     }
 }
