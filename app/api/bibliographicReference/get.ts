@@ -1,9 +1,7 @@
 import type { BibliographicReference } from '~/types/models';
-export async function fetchBibliographicReferencesByPostId(postId: string) {
-    const config = useRuntimeConfig()
-    const apiUrl = config.public.apiBaseUrl;
-
+export async function fetchBibliographicReferencesByPostId(postId: string, apiUrl?: string) {
     try {
+        const baseUrl = apiUrl || useRuntimeConfig().public.apiBaseUrl;
         const options = {
             method: 'GET',
             headers: {
@@ -11,15 +9,17 @@ export async function fetchBibliographicReferencesByPostId(postId: string) {
             } as Record<string, string>,
         } as const;
 
-        const response = await $fetch<BibliographicReference[]>(`${apiUrl}/bibliographic_reference/post/${postId}`, options)
+        const url = `${baseUrl}/bibliographic_reference/post/${postId}`;
+        const response = await $fetch<BibliographicReference[]>(url, options)
 
         return response
     }
-    catch (error) {
-        throw createError({
-            statusCode: 500,
-            statusMessage: 'API Erro ao buscar as notas de rodapé',
-        })
+    catch (error: any) {
+        console.error(`[API] Error fetching refs for post ${postId}:`, error.statusCode, error.message);
+        throw {
+            statusCode: error.statusCode || 500,
+            statusMessage: error.message || 'API Erro ao buscar as referências',
+        }
     }
 }
 

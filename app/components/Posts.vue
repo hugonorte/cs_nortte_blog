@@ -6,7 +6,8 @@ import { fetchPublishedPosts } from '~/api/posts/get';
 const Posts = ref<Post[]>([])
 
 onMounted(async () => {
-  Posts.value = await fetchPublishedPosts()
+  const config = useRuntimeConfig()
+  Posts.value = await fetchPublishedPosts(config.public.apiBaseUrl)
 })
 </script>
 
