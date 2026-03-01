@@ -15,9 +15,11 @@
                     <li>
                         <NuxtLink to="/posts">Posts</NuxtLink>
                     </li>
-                    <!-- <li>
+                    <!-- 
+                    <li>
                         <NuxtLink to="/">Categorias</NuxtLink>
-                    </li> -->
+                    </li> 
+                    -->
                     <li>
                         <NuxtLink to="/manifesto">Manifesto</NuxtLink>
                     </li>
