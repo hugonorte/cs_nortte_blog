@@ -3,7 +3,7 @@ definePageMeta({
     layout: 'home'
 });
 import type { PostContent as FetchedPost, Footnote, BibliographicReference } from '../../types/models'
-import { fetchPostBySlug } from '../../api/posts/get'
+import { fetchPostContentBySlug } from '../../api/posts/get'
 import { fetchFootnotesByPostId } from '../../api/footnote/get'
 import { fetchBibliographicReferencesByPostId } from '../../api/bibliographicReference/get'
 import { computed } from 'vue';
@@ -18,7 +18,7 @@ const { data, status, error } = await useAsyncData(`post-${route.params.slug}`, 
     const slug = route.params.slug as string;
     const apiUrl = config.public.apiBaseUrl;
     
-    const post = await fetchPostBySlug(slug, apiUrl);
+    const post = await fetchPostContentBySlug(slug, apiUrl);
     
     if (!post || !post.id) {
         return { post: null, footnotes: [], refs: [] };
