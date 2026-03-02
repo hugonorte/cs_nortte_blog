@@ -31,7 +31,7 @@
             <div>
                 <ul>
                     <li>
-                        <NuxtLink to="/">Sobre</NuxtLink>
+                        <NuxtLink to="/about">Sobre</NuxtLink>
                     </li>
                     <!--<li>
                         <NuxtLink to="/contato">Contato</NuxtLink>
