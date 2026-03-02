@@ -38,10 +38,11 @@ export default defineNuxtConfig({
       if (nitroConfig.dev) { return }
       
       try {
-        const response = await fetch('https://admin.abertamente.net/api/post/published')
+        const apiBaseUrl = process.env.NUXT_PUBLIC_API_BASE_URL || 'https://admin.abertamente.net/api'
+        const response = await fetch(`${apiBaseUrl}/post/published`)
         const data = await response.json() as any[]
         // Map the IDs into full Nuxt routes
-        const routes = data.map(post => `/posts/${post.id}`)
+        const routes = data.map(post => `/posts/${post.slug || post.id}`)
         
         // Ensure the nitro properties exist
         nitroConfig.prerender = nitroConfig.prerender || {}
