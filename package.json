@@ -22,6 +22,7 @@
   "devDependencies": {
     "@nuxt/scripts": "^0.13.2",
     "@nuxtjs/seo": "^3.4.0",
+    "cypress": "^15.16.0",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "typescript": "^5.2.2"

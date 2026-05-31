@@ -12,12 +12,12 @@ const props = defineProps<{
 
 <template>
     <div class="post">
-        <img :src="imgUrl + '/' + post.image_path" alt="Descrição da imagem">
+        <img :src="imgUrl + '/' + post.image_path" :alt="post.title">
         <div class="postContent">
             <h3>{{ post.title }}</h3>
             <p>{{ post.tldr }}</p>
-            <NuxtLink :to="`/posts/${post.slug || post.id}`">
-                <button>Leia mais</button>
+            <NuxtLink :to="`/posts/${post.slug || post.id}`" class="read-more-btn">
+                Leia mais
             </NuxtLink>
         </div>
     </div>
@@ -60,7 +60,7 @@ const props = defineProps<{
             color: #666;
         }
 
-        button {
+        .read-more-btn {
             background: #095907;
             background: linear-gradient(70deg, rgba(9, 89, 7, 1) 0%, rgba(78, 115, 71, 1) 10%, rgba(21, 69, 6, 1) 100%);
             color: white;
@@ -70,6 +70,9 @@ const props = defineProps<{
             cursor: pointer;
             transition: background-color 0.3s ease;
             font-style: italic;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
 
             &:hover {
                 background: #095907;
