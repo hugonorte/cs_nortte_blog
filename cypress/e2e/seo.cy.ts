@@ -5,7 +5,7 @@ describe('Testes de SEO e Acessibilidade (Páginas Principais)', () => {
     
     // Verifica título da página
     cy.get('head title').should('not.be.empty');
-    cy.title().should('include', 'Abertamente');
+    cy.title().should('include', 'Nortte Blog');
 
     // Verifica meta tags cruciais de SEO
     cy.get('head meta[name="description"]').should('exist');
