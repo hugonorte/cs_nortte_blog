@@ -1,8 +1,14 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const currentYear = computed(() => new Date().getFullYear())
+</script>
+
 <template>
     <div class="footer_container">
         <div class="footer-links">
             <div class="logo">
-                <img src="~/assets/img/logo_negativo.svg" alt="Abertamente Logo">
+                <img src="~/assets/img/logo_negativo.svg" alt="Nortte Blog Logo">
             </div>
             <div class="separador">
                 <span>&nbsp;</span>
@@ -44,7 +50,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2026 Abertamente. Todos os direitos reservados.</p>
+            <p>&copy; {{ currentYear }} Nortte Blog. Todos os direitos reservados.</p>
         </div>
     </div>
 
@@ -53,8 +59,8 @@
 <style scoped lang="scss">
 
 .footer_container {
-    background: #034F04;
-    background: linear-gradient(0deg, rgb(0, 9, 0) 0%, rgb(2, 42, 14) 100%);
+    background: #03384f;
+    background: linear-gradient(0deg, rgb(0, 5, 9) 0%, rgb(2, 29, 42) 100%);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -68,13 +74,13 @@
         padding: 0;
         margin: 0;
         text-align: left;
-        color: #93c2a4;
+        color: #93b0c2;
         line-height: 1.5rem;
         font-size: 0.7rem;
     }
 
     a {
-        color: #93c2a4;
+        color: #93b7c2;
         text-decoration: none;
 
         &:hover {
@@ -97,7 +103,7 @@
     }
 
     span {
-        background-color: #013605;
+        background-color: #013236;
         width: 2px;
         min-height: 170px;
         display: block;
@@ -124,16 +130,16 @@
     h2 {
         margin: 0;
         font-size: 1.5rem;
-        color: #93c2a4;
+        color: #93b0c2;
     }
 }
 
 .copyright {
     text-align: center;
-    color: #93c2a4;
+    color: #93b2c2;
     font-size: 0.7rem;
     width: 100%;
-    background: #011303;
+    background: #011213;
     padding: 1rem 0;
     max-height: 8px;
     display: flex;
