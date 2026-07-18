@@ -1,6 +1,6 @@
 # 🎯 Token Optimization System — Complete Overview
 
-This directory now contains a **comprehensive token-saving system** designed to help agents (Claude or any other AI) work efficiently on the Abertamente Nuxt 4 frontend project.
+This directory now contains a **comprehensive token-saving system** designed to help agents (Claude or any other AI) work efficiently on the Nortte Blog Nuxt 4 frontend project.
 
 ---
 

@@ -4,7 +4,7 @@ trigger: always_on
 
 # Token Optimization Strategies
 
-Practical techniques to minimize token consumption when working on this Abertamente Nuxt 4 project.
+Practical techniques to minimize token consumption when working on this Nortte Blog Nuxt 4 project.
 
 ---
 

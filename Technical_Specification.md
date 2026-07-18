@@ -1,8 +1,8 @@
-# Technical Specification - Portal Abertamente
+# Technical Specification - Nortte Blog
 
 ## Executive Summary
 
-Este documento serve como a "Fonte da Verdade" para os agentes **@engineer** e **@qa**. O objetivo é construir e manter o portal **Abertamente** utilizando **Nuxt 4**, garantindo uma aplicação robusta, gerada estaticamente (SSG) para alta performance de SEO, e focada em ser um portal de informação e conhecimento de ponta.
+Este documento serve como a "Fonte da Verdade" para os agentes **@engineer** e **@qa**. O objetivo é construir e manter o **Nortte Blog** utilizando **Nuxt 4**, garantindo uma aplicação robusta, gerada estaticamente (SSG) para alta performance de SEO, e focada em ser um portal de artigos e conhecimento de ponta.
 
 ---
 
@@ -29,7 +29,7 @@ Este documento serve como a "Fonte da Verdade" para os agentes **@engineer** e *
 
 ### 2.1 Global: Header & Footer
 
-- **Descrição**: Logo do portal Abertamente, Menu principal de navegação pelas categorias, e links utilitários.
+- **Descrição**: Logo do Nortte Blog, Menu principal de navegação pelas categorias, e links utilitários.
 - **Eng. Req**:
   - Header responsivo, otimizado para carregamento veloz.
   - Navegação gerida pelo `vue-router` nativo do Nuxt.
@@ -64,7 +64,7 @@ Este documento serve como a "Fonte da Verdade" para os agentes **@engineer** e *
 ### 3.2 Security & Data
 
 - **Uso estrito de `runtimeConfig`** para variáveis de ambiente. A `NUXT_PUBLIC_API_BASE_URL` é fundamental para o consumo dos dados dos posts.
-- **Proteção XSS**: Ao renderizar os conteúdos de posts que possivelmente vêm formatados em HTML, garantir que a renderização é sanitizada e proveniente apenas da API oficial do Abertamente.
+- **Proteção XSS**: Ao renderizar os conteúdos de posts que possivelmente vêm formatados em HTML, garantir que a renderização é sanitizada e proveniente apenas da API oficial do Nortte Blog.
 
 ---
 

@@ -1,6 +1,6 @@
 # 🧠 Agents Memory — Cached Project Context
 
-This file serves as a **persistent memory database** for any AI agent working on the Abertamente Nuxt 4 frontend. Reference this instead of exploring the codebase to save tokens.
+This file serves as a **persistent memory database** for any AI agent working on the Nortte Blog Nuxt 4 frontend. Reference this instead of exploring the codebase to save tokens.
 
 ---
 

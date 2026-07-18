@@ -29,7 +29,7 @@ source: Extracted from memory system for .agents/memory/
 ## Data Fetching & SSG
 
 **SSG (Static Site Generation)**
-- **Why**: Abertamente é um portal focado em performance de leitura e SEO.
+- **Why**: Nortte Blog é um portal focado em performance de leitura e SEO.
 - **Pattern**: Uso de hook em `nitro:config` dentro do `nuxt.config.ts` para capturar os slugs de posts publicados na API e alimentar as rotas do prerender.
 - **API Fetching**: Utilizar `$fetch` para consumir o endpoint `/api/post/published`.
 
@@ -42,7 +42,7 @@ source: Extracted from memory system for .agents/memory/
 
 ## Backend Integration (Nitro)
 
-**Abertamente REST API**
+**Nortte Blog REST API**
 - Environment vars: `NUXT_PUBLIC_API_BASE_URL` (URL base da API do backend em admin.abertamente.net)
 - Configurada e exposta via `runtimeConfig.public` para acesso isomórfico.
 
@@ -69,12 +69,12 @@ source: Extracted from memory system for .agents/memory/
 ```bash
 npm run generate  # Creates static files
 ```
-- **Why**: Abertamente é um portal cujo conteúdo pode ser gerado estaticamente para SEO máximo.
+- **Why**: Nortte Blog é um portal cujo conteúdo pode ser gerado estaticamente para SEO máximo.
 
 ## Composables Over Global State
 
 **Pattern**: Use composables for shared logic
-- **Why**: Abertamente's state needs are minimal, evitando overhead de Pinia.
+- **Why**: Nortte Blog's state needs are minimal, evitando overhead de Pinia.
 
 ## Critical Constraints (Never Violate)
 
