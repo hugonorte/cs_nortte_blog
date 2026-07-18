@@ -11,6 +11,9 @@ export async function fetchPublishedPosts(apiUrl?: string) {
     
     const options = {
         method: 'GET' as 'GET',
+        params: {
+            status: 'PUBLISHED'
+        },
         headers: {
             'Content-Type': 'application/json',
         } as Record<string, string>,

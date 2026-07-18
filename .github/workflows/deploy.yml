@@ -23,16 +23,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'npm'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: pnpm install
 
       - name: Run tests
-        run: npm run test:unit || echo "No tests to run or tests failed, proceeding..."
+        run: pnpm run test:unit || echo "No tests to run or tests failed, proceeding..."
 
       - name: Generate static site
-        run: npm run generate
+        run: pnpm run generate
         env:
           NUXT_PUBLIC_API_BASE_URL: ${{ secrets.NUXT_PUBLIC_API_BASE_URL }}
           NUXT_PUBLIC_IMAGES_FOLDER: ${{ secrets.NUXT_PUBLIC_IMAGES_FOLDER }}
