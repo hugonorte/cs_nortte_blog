@@ -1,7 +1,7 @@
 <template>
   <section class="hero_container" aria-label="Destaque">
       <h1>
-          Saúde Física e Mental <br >em um só Lugar
+          Guardando dicas, códigos, conceitos agora <br > e consultando sempre.
       </h1>
     </section>  
 </template>
@@ -11,7 +11,7 @@
     padding: clamp(0.8rem, 6vw, 9rem);
     display: flex;
     height: 60vh;
-    background-image: url('~/assets/img/woman.avif');
+    background-image: url('~/assets/img/montagem.avif');
     background-size: cover;
     background-color: transparent;
     background-position: center;
