@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@nuxt/scripts": "^0.13.2",
+    "@nuxt/ui": "^4.10.0",
     "@nuxtjs/seo": "^3.4.0",
     "cypress": "^15.16.0",
     "sass": "^1.66.1",

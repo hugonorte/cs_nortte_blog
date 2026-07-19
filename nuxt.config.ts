@@ -11,9 +11,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   site: {
-    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://abertamente.net',
-    name: process.env.NUXT_PUBLIC_SITE_NAME || 'Abertamente',
-    description: 'Portal Abertamente - Informação e Conhecimento',
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://nortteblog.net',
+    name: process.env.NUXT_PUBLIC_SITE_NAME || 'Nortte Blog',
+    description: 'Nortte Blog - Artigos e Conhecimento',
     defaultLocale: 'pt-BR', // Assuming Portuguese based on the project name
   },
   modules: [
@@ -22,9 +22,19 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/seo',
     '@nuxt/scripts',
+    '@nuxt/ui',
   ],
   css: ['~/assets/scss/main.scss'],
+  colorMode: {
+    preference: 'light'
+  },
   vite: {
+    optimizeDeps: {
+      include: [
+        '@unhead/schema-org/vue',
+        'jwt-decode'
+      ]
+    },
     css: {
       preprocessorOptions: {
         scss: {
@@ -38,7 +48,7 @@ export default defineNuxtConfig({
       if (nitroConfig.dev) { return }
       
       try {
-        const apiBaseUrl = process.env.NUXT_PUBLIC_API_BASE_URL || 'https://admin.abertamente.net/api'
+        const apiBaseUrl = process.env.NUXT_PUBLIC_API_BASE_URL || 'https://api.nortteblog.net/api'
         const response = await fetch(`${apiBaseUrl}/post/published`)
         const data = await response.json() as any[]
         // Map the IDs into full Nuxt routes

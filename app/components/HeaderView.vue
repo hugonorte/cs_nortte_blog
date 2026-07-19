@@ -1,8 +1,16 @@
+<script setup lang="ts">
+const colorMode = useColorMode()
+
+function toggleTheme() {
+  colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
+}
+</script>
+
 <template>
     <header>
         <div class="logo">
             <NuxtLink to="/" aria-label="Ir para a página inicial">
-                <img src="~/assets/img/logo_principal.svg" alt="Abertamente Logo">
+                <span class="logo-text">Nortte Blog</span>
             </NuxtLink>
             <nav>
                 <ul>
@@ -11,6 +19,20 @@
                     </li>
                     <li>
                         <NuxtLink to="/posts">Posts</NuxtLink>
+                    </li>
+                    <li>
+                        <ClientOnly>
+                            <UButton
+                                :icon="colorMode.preference === 'dark' ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'"
+                                color="gray"
+                                variant="ghost"
+                                aria-label="Theme"
+                                @click="toggleTheme"
+                            />
+                            <template #fallback>
+                                <div style="width: 32px; height: 32px;"></div>
+                            </template>
+                        </ClientOnly>
                     </li>
                 </ul>
             </nav>
@@ -31,9 +53,11 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        img {
-            height: 60px;
-            max-width: 190px;
+        .logo-text {
+            font-family: 'Science Gothic', sans-serif;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
         }
         nav {
             ul {
@@ -50,6 +74,10 @@ header {
                             color: #385238;
                         }
                     }
+                }
+                li {
+                    display: flex;
+                    align-items: center;
                 }
             }
         }

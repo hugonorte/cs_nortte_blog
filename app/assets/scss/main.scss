@@ -9,11 +9,18 @@ body {
     font-family: "Roboto", sans-serif;
     color:#333;
     overflow-x: hidden;
+    background-color: rgb(247, 253, 250); /* Default light background */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+html.dark body {
+    background-color: #121212; /* Dark background */
+    color: #e5e7eb;
 }
 main {
     flex-grow: 1;
     padding: 1rem;
-    background-color: rgb(247, 253, 250);
+    background-color: transparent;
 
     article {
         header {
