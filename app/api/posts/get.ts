@@ -20,8 +20,8 @@ export async function fetchPublishedPosts(apiUrl?: string) {
     };
 
     try {
-        const response = await $fetch<Post[]>(`${url}/post/published`, options)
-        return response
+        const response: any = await $fetch(`${url}/post`, options)
+        return response.content || response
     }
     catch (error: any) {
         throw {
@@ -54,8 +54,8 @@ export async function fetchPosts(apiUrl?: string) {
             options.headers.Authorization = `Bearer ${token}`;
         }
 
-        const response = await $fetch<Post[]>(`${url}/post`, options)
-        return response
+        const response: any = await $fetch(`${url}/post`, options)
+        return response.content || response
     }
     catch (error: any) {
         throw {
@@ -88,8 +88,8 @@ export async function fetchPostsSummary(apiUrl?: string) {
             options.headers.Authorization = `Bearer ${token}`;
         }
 
-        const response = await $fetch<Post[]>(`${url}/post-summary`, options)
-        return response
+        const response: any = await $fetch(`${url}/post`, options)
+        return response.content || response
     }
     catch (error: any) {
         throw {
@@ -133,7 +133,7 @@ export async function fetchPostContentById(id: string, apiUrl?: string) {
             } as Record<string, string>,
         };
 
-        const response = await $fetch<PostContent>(`${url}/post/published/${id}`, options)
+        const response = await $fetch<PostContent>(`${url}/post/${id}`, options)
         if (!response) {
             throw {
                 statusCode: 404,
@@ -164,7 +164,7 @@ export async function fetchPostContentBySlug(slug: string, apiUrl?: string) {
             } as Record<string, string>,
         };
 
-        const response = await $fetch<PostContent>(`${url}/post/published/${slug}`, options)
+        const response = await $fetch<PostContent>(`${url}/post/slug/${slug}`, options)
         if (!response) {
             throw {
                 statusCode: 404,
@@ -184,7 +184,7 @@ export async function fetchPostContentBySlug(slug: string, apiUrl?: string) {
 
 export async function fetchPostBySlug(slug: string, apiUrl?: string): Promise<PostContent> {
     const baseUrl = apiUrl || useRuntimeConfig().public.apiBaseUrl;
-    const url = `${baseUrl}/posts/${slug}`;
+    const url = `${baseUrl}/post/${slug}`;
     
     try {
         const options = {

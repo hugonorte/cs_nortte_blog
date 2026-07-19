@@ -2,7 +2,7 @@
 const colorMode = useColorMode()
 
 function toggleTheme() {
-  colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
+    colorMode.preference = colorMode.preference === 'dark' ? 'light' : 'dark'
 }
 </script>
 
@@ -24,11 +24,7 @@ function toggleTheme() {
                         <ClientOnly>
                             <UButton
                                 :icon="colorMode.preference === 'dark' ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'"
-                                color="gray"
-                                variant="ghost"
-                                aria-label="Theme"
-                                @click="toggleTheme"
-                            />
+                                color="primary" variant="ghost" aria-label="Theme" @click="toggleTheme" />
                             <template #fallback>
                                 <div style="width: 32px; height: 32px;"></div>
                             </template>
@@ -41,46 +37,94 @@ function toggleTheme() {
 </template>
 
 <style scoped lang="scss">
-header {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@use "../assets/scss/_colors.scss" as *;
+
+html.light header {
     .logo {
-        width: 90%;
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .logo-text {
-            font-family: 'Science Gothic', sans-serif;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        nav {
-            ul {
-                list-style: none;
-                display: flex;
-                gap: 20px;
-                li {
-                    a {
-                        text-decoration: none;
-                        color: rgb(38, 116, 44);
-                        font-weight: bold;
-                        font-size: 18px;
-                        &:hover {
-                            color: #385238;
-                        }
-                    }
-                }
-                li {
-                    display: flex;
-                    align-items: center;
-                }
+        a {
+            text-decoration: none;
+            .logo-text {
+                color: $primary;
             }
         }
     }
 }
-</style>
+html.dark header {
+    
+
+        nav {
+            a {
+                &:link {
+                    color: #4a94de;
+                }
+
+                &:active {
+                    color: #4a94de;
+                }
+
+                &:visited {
+                    color: #4a94de;
+                }
+
+                &:hover {
+                    color: #868fef;
+                }
+            }
+
+            .logo-text {
+                font-family: 'Science Gothic', sans-serif;
+                color: rgb(186, 14, 14);
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+        }
+    }
+
+    header {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .logo {
+            width: 90%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .logo-text {
+                font-family: 'Science Gothic', sans-serif;
+                color: white;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+            nav {
+                ul {
+                    list-style: none;
+                    display: flex;
+                    gap: 20px;
+
+                    li {
+                        a {
+                            text-decoration: none;
+                            color: $primary;
+                            font-weight: bold;
+                            font-size: 18px;
+
+                            &:hover {
+                                color: $primary_darker;
+                            }
+                        }
+                    }
+
+                    li {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }</style>

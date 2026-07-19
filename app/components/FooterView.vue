@@ -8,7 +8,7 @@ const currentYear = computed(() => new Date().getFullYear())
     <div class="footer_container">
         <div class="footer-links">
             <div class="logo">
-                <img src="~/assets/img/logo_negativo.svg" alt="Nortte Blog Logo">
+                Nortte Blog
             </div>
             <div class="separador">
                 <span>&nbsp;</span>
@@ -90,6 +90,10 @@ const currentYear = computed(() => new Date().getFullYear())
 
     .logo {
         margin-bottom: 1.888rem;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        font-family: "Science Gothic", "Science Gothic Fallback: Arial", sans-serif;
     }
 
     .separador {

@@ -2,12 +2,12 @@
 definePageMeta({
     layout: 'home'
 });
-import type { PostContent as FetchedPost, Footnote, BibliographicReference } from '../../types/models'
-import { fetchPostContentBySlug } from '../../api/posts/get'
-import { fetchFootnotesByPostId } from '../../api/footnote/get'
-import { fetchBibliographicReferencesByPostId } from '../../api/bibliographicReference/get'
+import type { PostContent as FetchedPost, Footnote, BibliographicReference } from '../../../types/models'
+import { fetchPostContentBySlug } from '../../../api/posts/get'
+import { fetchFootnotesByPostId } from '../../../api/footnote/get'
+import { fetchBibliographicReferencesByPostId } from '../../../api/bibliographicReference/get'
 import { computed } from 'vue';
-import { formatDate } from '../../utils/date';
+import { formatDate } from '../../../utils/date';
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -73,7 +73,7 @@ if (FetchedPost.value) {
         ogTitle: FetchedPost.value.title,
         description: FetchedPost.value.tldr,
         ogDescription: FetchedPost.value.tldr,
-        ogImage: `${config.public.publicImagesFolder}/${FetchedPost.value.image_path}`,
+        ogImage: `${config.public.publicImagesFolder}/${FetchedPost.value.imagePath}`,
         twitterCard: 'summary_large_image',
         articleAuthor: [FetchedPost.value.author_name || ''],
         articlePublishedTime: FetchedPost.value.created_at ? String(FetchedPost.value.created_at) : undefined,
@@ -82,7 +82,7 @@ if (FetchedPost.value) {
     useSchemaOrg([
         defineArticle({
             headline: FetchedPost.value.title,
-            image: `${config.public.publicImagesFolder}/${FetchedPost.value.image_path}`,
+            image: `${config.public.publicImagesFolder}/${FetchedPost.value.imagePath}`,
             author: [
                 {
                     name: FetchedPost.value.author_name,
@@ -101,13 +101,13 @@ if (FetchedPost.value) {
             <header>
                 <h1>{{ FetchedPost.title }}</h1>
                 <figure class="featured-image">
-                    <img :src="`${imgUrl}/${FetchedPost.image_path}`" :alt="FetchedPost.title">
+                    <img :src="`${imgUrl}${FetchedPost.imagePath}`" :alt="FetchedPost.title">
                     <figcaption>Imagem ilustrativa</figcaption>
                 </figure>
                 
                 <section class="author-info">
                     <address>
-                        <h3>{{ FetchedPost.author_main_title }} {{ FetchedPost.author_name }}</h3>
+                        <h3>{{ FetchedPost.author_name }}</h3>
                         <p class="author-bio">{{ FetchedPost.author_bio }}</p>
                         <p class="social-links">
                             <strong>{{ FetchedPost.author_preferred_social_network }}:</strong> 

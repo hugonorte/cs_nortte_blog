@@ -45,7 +45,7 @@ export default defineNuxtConfig({
   },
   hooks: {
     async 'nitro:config'(nitroConfig: any) {
-      if (nitroConfig.dev) { return }
+      if (process.env.NODE_ENV === 'development' || process.env.npm_lifecycle_event === 'dev' || nitroConfig.dev) { return }
       
       try {
         const apiBaseUrl = process.env.NUXT_PUBLIC_API_BASE_URL || 'https://api.nortteblog.net/api'

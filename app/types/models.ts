@@ -13,7 +13,7 @@ export interface Post {
   title?: string
   tldr?: string
   content?: string
-  image_path?: string
+  imagePath?: string
   author_id?: number
   category_id?: number
   published_at?: string | Date
@@ -28,19 +28,19 @@ export interface PostCard {
   title?: string
   slug?: string
   tldr?: string
-  image_path?: string
+  imagePath?: string
   created_at?: string | Date
   author_name?: string
   category_name?: string
 }
 
 export interface PostContent {
-  id?: number
+  id?: string
   title?: string
   slug?: string
   tldr?: string
   content?: string
-  image_path?: string
+  imagePath?: string
   author_id?: number
   author_main_title?: string
   author_preferred_social_network?: string

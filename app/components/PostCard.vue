@@ -12,11 +12,11 @@ const props = defineProps<{
 
 <template>
     <div class="post">
-        <img :src="imgUrl + '/' + post.image_path" :alt="post.title">
+        <img :src="`${imgUrl}${post.imagePath}`" :alt="post.title">
         <div class="postContent">
             <h3>{{ post.title }}</h3>
             <p>{{ post.tldr }}</p>
-            <NuxtLink :to="`/posts/${post.slug || post.id}`" class="read-more-btn">
+            <NuxtLink :to="`/posts/slug/${post.slug || post.id}`" class="read-more-btn">
                 Leia mais
             </NuxtLink>
         </div>
@@ -24,6 +24,24 @@ const props = defineProps<{
 </template>
 
 <style scoped lang="scss">
+html.dark .postContent {
+    h3 {
+        color: #b3c9de ;
+    }
+    p {
+        color: #c1d5ea ;
+    }
+    .read-more-btn {
+            background: #6906b0;
+            background: linear-gradient(70deg, rgb(52, 7, 89) 0%, rgb(108, 71, 115) 10%, rgb(69, 6, 58) 100%);
+            color: white;
+
+            &:hover {
+                background: #430759;
+                background: linear-gradient(70deg, rgb(87, 18, 139) 0%, rgb(130, 94, 151) 10%, rgb(119, 23, 136) 100%);
+            }
+    }
+}
 .post {
     display: flex;
     flex-direction: column;
@@ -61,8 +79,8 @@ const props = defineProps<{
         }
 
         .read-more-btn {
-            background: #095907;
-            background: linear-gradient(70deg, rgba(9, 89, 7, 1) 0%, rgba(78, 115, 71, 1) 10%, rgba(21, 69, 6, 1) 100%);
+            background: rgb(7, 73, 89);
+            background: linear-gradient(70deg, rgb(7, 73, 89) 0%, rgb(71, 97, 115) 10%, rgb(6, 69, 60) 100%);
             color: white;
             border: none;
             padding: 0.5rem 1rem;
