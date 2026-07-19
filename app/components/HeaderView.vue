@@ -22,9 +22,9 @@ function toggleTheme() {
                     </li>
                     <li>
                         <ClientOnly>
-                            <UButton
-                                :icon="colorMode.preference === 'dark' ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'"
-                                color="primary" variant="ghost" aria-label="Theme" @click="toggleTheme" />
+                            <button @click="toggleTheme" aria-label="Theme" class="theme-toggle">
+                                <Icon :name="colorMode.preference === 'dark' ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'" />
+                            </button>
                             <template #fallback>
                                 <div style="width: 32px; height: 32px;"></div>
                             </template>
@@ -123,6 +123,19 @@ html.dark header {
                     li {
                         display: flex;
                         align-items: center;
+
+                        .theme-toggle {
+                            background: transparent;
+                            border: none;
+                            padding: 0;
+                            margin: 0;
+                            cursor: pointer;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: inherit;
+                            font-size: 20px;
+                        }
                     }
                 }
             }

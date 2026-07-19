@@ -76,7 +76,7 @@ const currentYear = computed(() => new Date().getFullYear())
         text-align: left;
         color: #93b0c2;
         line-height: 1.5rem;
-        font-size: 0.7rem;
+        font-size: 0.888rem;
     }
 
     a {

@@ -16,9 +16,7 @@ body {
 html.dark body {
     background: #00284a;
     background: linear-gradient(180deg, #00284a 0%, #011a2f 5%);
-    color: #e5e7eb;
-
-    
+    color: #e5e7eb;  
 }
 main {
     flex-grow: 1;
@@ -54,12 +52,20 @@ main {
 
 
             h1 {
-                color: $primary;
+                color: $post_title;
+
+                html.dark & {
+                    color: color-mix($post_title, white 70%);
+                }
             }
             h3{
                 color: $primary_lighter;
                 margin-bottom:0;
                 font-size: 1.888rem;
+
+                html.dark & {
+                    color: color-mix($post_author, white 70%);
+                }
             }
             h4 {
                 margin:0;
@@ -84,6 +90,20 @@ main {
                 margin: 0;
                 font-size:1rem;
                 line-height: 1.8rem;
+
+                html.dark & {
+                    color: color-mix($post_text, white 70%);
+                }
+
+                a {
+                    &:link {
+                        color: $post_text;
+
+                        html.dark & {
+                            color: color-mix($post_text, white 60%);
+                        }
+                    }
+                }
             }
         }
 
@@ -102,6 +122,11 @@ main {
 
                 p {
                     margin-bottom: 1rem;
+
+
+                    html.dark & {
+                        color: color-mix($post_text, white 60%);
+                    }
                 }
 
                 blockquote {
@@ -131,7 +156,11 @@ main {
                     h2 {
                         font-size: 1.2rem;
                         margin-bottom: 0.5rem;
-                        color: $primary;
+                        color: $post_subtitle;
+
+                        html.dark & {
+                            color: color-mix($post_subtitle, white 70%);
+                        }
                     }
 
                     ol {
@@ -140,7 +169,11 @@ main {
                         li {
                             margin-bottom: 0.5rem;
                             font-size: 0.9rem;
-                            color: $primary;
+                            color: $post_text;
+
+                            html.dark & {
+                                color: color-mix($post_text, white 70%);
+                            }
                         }
                     }
                 }
@@ -155,7 +188,11 @@ main {
                 h2 {
                     font-size: 1.2rem;
                     margin-bottom: 0.5rem;
-                    color: $primary;
+                    color: $post_subtitle;
+
+                    html.dark & {
+                        color: color-mix($post_subtitle, white 70%);
+                    }
                 }
 
                 ol {
@@ -164,7 +201,11 @@ main {
                     li {
                         margin-bottom: 0.5rem;
                         font-size: 0.9rem;
-                        color: $primary;
+                        color: $post_text;
+
+                        html.dark & {
+                            color: color-mix($post_text, white 70%);
+                        }
                     }
                 }
             }
