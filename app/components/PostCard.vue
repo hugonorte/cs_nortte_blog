@@ -14,8 +14,10 @@ const props = defineProps<{
     <div class="post">
         <img :src="`${imgUrl}${post.imagePath}`" :alt="post.title">
         <div class="postContent">
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.tldr }}</p>
+            <div>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.tldr }}</p>
+            </div>
             <NuxtLink :to="`/posts/slug/${post.slug || post.id}`" class="read-more-btn">
                 Leia mais
             </NuxtLink>
@@ -66,6 +68,10 @@ html.dark .postContent {
 
     .postContent {
         padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1 1 auto;
 
         h3 {
             margin: 0;

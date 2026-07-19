@@ -30,7 +30,7 @@ const { data: Posts } = await useAsyncData<Post[]>('posts-published', () => fetc
 .postList {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   flex-wrap: wrap;
   padding: 2rem;
   gap: 2rem;
