@@ -220,3 +220,40 @@ export async function fetchPostBySlug(slug: string, apiUrl?: string): Promise<Po
         }
     }
 }
+
+export async function searchPosts(query: string, apiUrl?: string, honeypot?: string) {
+    if (!query || query.length < 3) {
+        throw {
+            statusCode: 400,
+            statusMessage: 'A busca deve ter pelo menos 3 caracteres',
+        }
+    }
+
+    const url = apiUrl || useRuntimeConfig().public.apiBaseUrl;
+    
+    const fetchParams: any = { query: query };
+    if (honeypot) {
+        fetchParams.contact_email = honeypot;
+    }
+
+    const options = {
+        method: 'GET' as const,
+        params: fetchParams,
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        } as Record<string, string>,
+    };
+
+    try {
+        const response: any = await $fetch(`${url}/post/search`, options)
+        return response.content || response
+    }
+    catch (error: any) {
+        console.error(`[API] Error searching posts with query "${query}":`, error);
+        throw {
+            statusCode: error.statusCode || 500,
+            statusMessage: error.statusMessage || 'API Erro ao buscar posts',
+        }
+    }
+}
