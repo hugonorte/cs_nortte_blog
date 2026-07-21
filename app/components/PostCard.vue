@@ -18,7 +18,7 @@ const props = defineProps<{
                 <h3>{{ post.title }}</h3>
                 <p>{{ post.tldr }}</p>
             </div>
-            <NuxtLink :to="`/posts/slug/${post.slug || post.id}`" class="read-more-btn">
+            <NuxtLink v-if="post.slug || post.id" :to="`/posts/slug/${post.slug || post.id}`" class="read-more-btn">
                 Leia mais
             </NuxtLink>
         </div>
