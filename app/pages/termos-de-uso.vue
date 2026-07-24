@@ -7,7 +7,7 @@ definePageMeta({
 <template>
     <article>
         <h1>Termos de Uso e Política de Privacidade</h1>
-        <p>Atualizado em: 24 de julho de 2026</p>
+        <p><em>Atualizado em: 24 de julho de 2026</em></p>
 
         <section>
             <h2>1. Introdução</h2>
