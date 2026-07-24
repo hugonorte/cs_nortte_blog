@@ -7,48 +7,67 @@ definePageMeta({
 <template>
     <article>
         <header>
-            <h1>SOBRE O ABERTAMENTE.NET</h1>
+            <h1>SOBRE O NORTTE BLOG</h1>
         </header>
 
         <section>
-            <h2>Nossa Origem</h2>
+            <h2>Origem</h2>
             <div class="origin-story">
-                <p>O <strong>abertamente.net</strong> não nasceu em uma redação convencional, mas em um ambiente de
-                    inovação e tecnologia. Somos um grupo de colegas do curso de <strong>Ciência da Computação</strong>
-                    que compartilha uma visão comum: usar a tecnologia para democratizar o acesso a informações que
-                    realmente importam.</p>
-                <p>A semente deste projeto foi plantada durante um <strong>Hackaton</strong> em nossa universidade. O
-                    desafio era criar uma solução que impactasse positivamente a sociedade, e percebemos que a saúde —
-                    física e mental — era um pilar onde a clareza e a liberdade de expressão precisavam de um novo
-                    espaço.</p>
+                <p>O <strong>Nortte Blog</strong> nasceu da minha necessidade de catalogar conhecimentos práticos e teóricos adquiridos ao longo da minha jornada na área de <strong>Ciência da Computação</strong>.</p>
+                <p>Como desenvolvedor full stack, frequentemente me deparo com desafios complexos e conceitos que merecem ser registrados. Este espaço serve como meu "bloco de notas" público, onde organizo ideias, tutoriais e reflexões sobre tecnologia e desenvolvimento de software.</p>
             </div>
         </section>
 
         <section>
-            <h2>O Que Fazemos</h2>
-            <p>Embora nossa base seja tecnológica, entendemos que o conteúdo de valor exige profundidade e autoridade
-                humana. Por isso, o abertamente.net atua como uma ponte.</p>
-            <p>Nós convidamos amigos, conhecidos e autoridades reconhecidas em suas respectivas áreas do conhecimento
-                para colaborar com artigos autorais. O resultado é uma curadoria de textos escritos por pessoas reais,
-                revisados por seus pares e focados exclusivamente no bem-estar de quem nos lê.</p>
+            <h2>O Que Faço</h2>
+            <p>O foco principal do blog é explorar temas ligados à computação, arquitetura de software e desenvolvimento web com profundidade e clareza.</p>
+            <p>Para otimizar a criação desse material, o conteúdo publicado aqui é escrito parte por mim e parte por <strong>Inteligência Artificial</strong>. No entanto, tudo passa pela minha rigorosa curadoria técnica para garantir a precisão e a qualidade das informações antes de chegarem até você.</p>
         </section>
 
         <section>
-            <h2>Nossos Valores</h2>
-            <p>Acreditamos que a saúde plena só é alcançada quando temos liberdade para discutir temas sensíveis sem
-                amarras ideológicas ou partidárias. Aqui, o código-fonte é a verdade e o objetivo final é uma vida mais
-                saudável para todos.</p>
+            <h2>Meus Valores</h2>
+            <p>Acredito no aprendizado contínuo, na transparência intelectual e na colaboração. Aqui, a busca pela precisão técnica guia as publicações. O espaço está sempre aberto para debates construtivos, críticas e melhorias que a comunidade possa sugerir.</p>
         </section>
 
         <div class="cta-box">
-            <p>Para entender profundamente nossas diretrizes, compromissos com a verdade e políticas de publicação,
-                convidamos você a ler o nosso documento oficial.</p>
+            <p>Para entender profundamente as diretrizes, compromisso com a verdade e políticas de publicação,
+                convidamos você a ler o nosso Manifesto.</p>
             <a href="/manifesto" class="btn-link">Acesse nosso Manifesto</a>
         </div>
     </article>
 </template>
 
 <style scoped lang="scss">
+html.dark article {
+    color: #e5e7eb;
+
+    h1 {
+        color: #4a94de;
+    }
+
+    h2 {
+        color: #5d7e9f;
+    }
+
+    strong {
+        color: #6b849d;
+        font-weight: bold;
+    }
+
+    blockquote {
+        background: #163f55;
+
+    }
+
+    a {
+        color: #4a94de;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
 article {
     max-width: 800px;
     margin: 0 auto;

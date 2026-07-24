@@ -53,6 +53,15 @@ html.dark article {
         background: #163f55;
 
     }
+
+    a {
+        color: #4a94de;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 article {
     max-width: 800px;
