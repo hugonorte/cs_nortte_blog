@@ -100,6 +100,28 @@ definePageMeta({
 </template>
 
 <style scoped lang="scss">
+html.dark article {
+    color: #e5e7eb;
+
+    h1 {
+        color: #4a94de;
+    }
+
+    h2 {
+        color: #5d7e9f;
+    }
+
+    strong {
+        color: #6b849d;
+        font-weight: bold;
+    }
+
+    blockquote {
+        background: #163f55;
+
+    }
+}
+
 article {
     max-width: 800px;
     margin: 0 auto;
@@ -109,7 +131,7 @@ article {
 }
 
 h1 {
-    color: #41694b;
+    color: #0a5bad;
     margin-bottom: 10px;
     font-size: 1.2em;
 }

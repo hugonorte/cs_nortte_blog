@@ -7,65 +7,53 @@ definePageMeta({
 <template>
     <article>
         <header>
-            <h1>MANIFESTO ABERTAMENTE.NET</h1>
-            <p><em>Clareza, saúde e liberdade de expressão.</em></p>
+            <h1>MANIFESTO do Nortte Blog</h1>
+            <p><em>Meu bloco de notas sobre assuntos da área de Ciência da Computação</em></p>
         </header>
 
         <section>
-            <p>O <strong>abertamente.net</strong> nasce com o propósito fundamental de ser um espaço de troca,
-                informação e reflexão. Nosso objetivo é divulgar artigos autorais dedicados à saúde física e mental,
-                servindo como uma bússola para aqueles que buscam uma vida mais equilibrada, consciente e plena.</p>
+            <p>O <strong>Nortte Blog</strong> visa ser uma área dedicada às minhas anotações sobre os diversos assuntos da área de ciência da computação. Como atuo profissionalmente como desenvolvedor full stack, provavelmente os assuntos relacionados a esse tema deverão ter uma maior quantidade e profundidade nas abordagens.</p>
         </section>
 
         <section>
-            <h2>1. Autenticidade e Colaboração</h2>
-            <p>Acreditamos no valor da experiência humana. Por isso, todos os nossos textos são escritos por
-                <strong>pessoas reais</strong>. Valorizamos o rigor e a melhoria contínua: nossos conteúdos podem passar
-                por revisão de pares, garantindo que o conhecimento circule de forma orgânica e colaborativa.</p>
-        </section>
-
-        <section>
-            <h2>2. Compromisso com a Verdade</h2>
-            <p>Embora valorizemos a autonomia autoral, não abrimos mão da precisão. Qualquer informação que venha a se
-                mostrar incorreta será prontamente retirada do ar. Para isso, mantemos um canal aberto para notificações
-                que contenham a devida justificativa e comprovação do erro, permitindo que nossa administração aja com
-                agilidade e responsabilidade.</p>
-        </section>
-
-        <section>
-            <h2>3. Isenção e Foco</h2>
-            <p>A saúde e o bem-estar transcendem ideologias. O conteúdo do <strong>abertamente.net</strong> é
-                estritamente técnico, informativo ou reflexivo, mantendo-se <strong>isento de viés político ou
-                    partidário</strong>. Nosso compromisso é com o indivíduo e sua jornada de saúde, não com agendas
-                externas.</p>
+            <h2>1. Autenticidade, IA e Colaboração</h2>
+            <p>O conteúdo publicado neste blog é escrito parte por mim mesmo e parte por Inteligência Artificial, sempre com a minha rigorosa curadoria técnica. Valorizo a melhoria contínua, portanto qualquer colaboração, crítica ou elogio é muito bem-vinda. Basta entrar em contato comigo pelo GitHub: <a href="https://github.com/hugonorte" target="_blank" rel="noopener noreferrer">@hugonorte</a>.</p>
         </section>
 
         <section>
             <h2>4. Liberdade e Responsabilidade</h2>
-            <p>Defendemos a <strong>liberdade de expressão total e irrestrita</strong>, respeitando integralmente a
-                legislação vigente. Entendemos que o livre debate de ideias é essencial para o amadurecimento social.
-            </p>
-            <p>Neste sentido, cabe ressaltar que:</p>
+            <p>A liberdade de expressão é um direito fundamental, e este blog respeita integralmente a legislação vigente. Entendemos que o livre debate de ideias é essencial para o amadurecimento social.</p>
+            <p>Aqui, cabe ressaltar que:</p>
             <ul>
-                <li>Qualquer texto publicado por um autor-colaborador é de sua <strong>inteira
-                        responsabilidade</strong>.</li>
-                <li>Qualquer opinião emitida nos artigos reflete exclusivamente o pensamento de seu autor.</li>
+                <li>Todo conteúdo publicado neste blog é de minha <strong>inteira responsabilidade</strong>. No entanto, poderão existir citações de outros autores com devida atribuição. Caso você seja autor de alguma frase ou ideia aqui citada e discorde da sua veiculação, por favor, entre em contato pelo GitHub: <a href="https://github.com/hugonorte" target="_blank" rel="noopener noreferrer">@hugonorte</a>, que providenciarei a devida citação ou remoção, conforme desejar.</li>
+                <li>Qualquer opinião emitida nos artigos reflete exclusivamente o meu pensamento e não devem ser interpretadas como opiniões de terceiros ou de entidades das quais faço parte.</li>
             </ul>
         </section>
-
-        <hr>
-
-        <div class="warning-box">
-            <strong>Aviso de Sensibilidade:</strong><br>
-            Os conteúdos deste site são produzidos com o intuito de informar e agregar valor, jamais de ferir ou causar
-            dano a outrem. Contudo, temas relacionados à saúde física e mental podem ser sensíveis para algumas pessoas.
-            Sugerimos que indivíduos que se sintam vulneráveis ou sensíveis a estes temas evitem o consumo do conteúdo
-            deste portal.
-        </div>
     </article>
 </template>
 
 <style scoped lang="scss">
+html.dark article {
+    color: #e5e7eb;
+
+    h1 {
+        color: #4a94de;
+    }
+
+    h2 {
+        color: #5d7e9f;
+    }
+
+    strong {
+        color: #6b849d;
+        font-weight: bold;
+    }
+
+    blockquote {
+        background: #163f55;
+
+    }
+}
 article {
     max-width: 800px;
     margin: 0 auto;
@@ -75,7 +63,7 @@ article {
 }
 
 h1 {
-    color: #41694b;
+    color: #0a5bad;
     margin-bottom: 10px;
     font-size: 1.2em;
 }
