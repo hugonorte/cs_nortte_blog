@@ -21,7 +21,8 @@ export async function fetchPublishedPosts(apiUrl?: string) {
 
     try {
         const response: any = await $fetch(`${url}/post`, options)
-        return response.content || response
+        const result = response?.content || response;
+        return Array.isArray(result) ? result : [];
     }
     catch (error: any) {
         throw {
@@ -55,7 +56,8 @@ export async function fetchPosts(apiUrl?: string) {
         }
 
         const response: any = await $fetch(`${url}/post`, options)
-        return response.content || response
+        const result = response?.content || response;
+        return Array.isArray(result) ? result : [];
     }
     catch (error: any) {
         throw {
@@ -89,7 +91,8 @@ export async function fetchPostsSummary(apiUrl?: string) {
         }
 
         const response: any = await $fetch(`${url}/post`, options)
-        return response.content || response
+        const result = response?.content || response;
+        return Array.isArray(result) ? result : [];
     }
     catch (error: any) {
         throw {
@@ -247,7 +250,8 @@ export async function searchPosts(query: string, apiUrl?: string, honeypot?: str
 
     try {
         const response: any = await $fetch(`${url}/post/search`, options)
-        return response.content || response
+        const result = response?.content || response;
+        return Array.isArray(result) ? result : [];
     }
     catch (error: any) {
         console.error(`[API] Error searching posts with query "${query}":`, error);
