@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import type { PostCard } from '~/types/models';
+import { buildImageUrl } from '~/utils/images';
+import { computed } from 'vue';
 const config = useRuntimeConfig()
 const imgUrl = config.public.publicImagesFolder;
-
 
 const props = defineProps<{
     post: PostCard
 }>()
 
+const imageSrc = computed(() => buildImageUrl(imgUrl, props.post?.imagePath))
+
 </script>
 
 <template>
     <div class="post">
-        <img v-if="post?.imagePath" :src="`${imgUrl}${post.imagePath}`" :alt="post?.title">
+        <img v-if="imageSrc" :src="imageSrc" :alt="post?.title">
         <div class="postContent">
             <div>
                 <h3>{{ post.title }}</h3>

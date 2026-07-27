@@ -8,6 +8,7 @@ import { fetchFootnotesByPostId } from '../../../api/footnote/get'
 import { fetchBibliographicReferencesByPostId } from '../../../api/bibliographicReference/get'
 import { computed } from 'vue';
 import { formatDate } from '../../../utils/date';
+import { buildImageUrl } from '../../../utils/images';
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -58,6 +59,8 @@ const socialNetworkBaseUrls: Record<string, string> = {
     Bluesky: 'https://bsky.app/profile/',
 };
 
+const imageSrc = computed(() => buildImageUrl(imgUrl, FetchedPost.value?.imagePath));
+
 const socialLink = computed(() => {
     const network = FetchedPost.value?.author_preferred_social_network;
     const username = FetchedPost.value?.author_preferred_social_network_username;
@@ -73,7 +76,7 @@ if (FetchedPost.value) {
         ogTitle: FetchedPost.value.title,
         description: FetchedPost.value.tldr,
         ogDescription: FetchedPost.value.tldr,
-        ogImage: `${config.public.publicImagesFolder}/${FetchedPost.value.imagePath}`,
+        ogImage: imageSrc.value,
         twitterCard: 'summary_large_image',
         articleAuthor: [FetchedPost.value.author_name || ''],
         articlePublishedTime: FetchedPost.value.created_at ? String(FetchedPost.value.created_at) : undefined,
@@ -82,7 +85,7 @@ if (FetchedPost.value) {
     useSchemaOrg([
         defineArticle({
             headline: FetchedPost.value.title,
-            image: `${config.public.publicImagesFolder}/${FetchedPost.value.imagePath}`,
+            image: imageSrc.value,
             author: [
                 {
                     name: FetchedPost.value.author_name,
@@ -100,8 +103,8 @@ if (FetchedPost.value) {
         <article v-if="FetchedPost" class="blog-post">
             <header>
                 <h1>{{ FetchedPost.title }}</h1>
-                <figure class="featured-image">
-                    <img :src="`${imgUrl}${FetchedPost.imagePath}`" :alt="FetchedPost.title">
+                <figure v-if="imageSrc" class="featured-image">
+                    <img :src="imageSrc" :alt="FetchedPost.title">
                     <figcaption>Imagem ilustrativa</figcaption>
                 </figure>
                 

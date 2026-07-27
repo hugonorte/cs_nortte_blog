@@ -1,23 +1,53 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import type { Post } from '~/types/models';
 import { fetchPublishedPosts } from '~/api/posts/get';
 
 const config = useRuntimeConfig()
-const { data: Posts } = await useAsyncData<Post[]>('posts-published', () => fetchPublishedPosts(config.public.apiBaseUrl), {
+const { data: Posts, status, error } = await useAsyncData<Post[]>('posts-published', () => fetchPublishedPosts(config.public.apiBaseUrl), {
   default: () => []
 })
+
+const isLoading = computed(() => status.value === 'pending')
+const isEmpty = computed(() => !Array.isArray(Posts.value) || Posts.value.length === 0)
 </script>
 
 <template>
-  <section class="postList" aria-labelledby="posts-heading">
+  <div v-if="isLoading" class="status-msg">
+    Carregando posts...
+  </div>
+
+  <div v-else-if="error" class="status-msg error">
+    Não foi possível carregar os posts no momento.
+  </div>
+
+  <div v-else-if="isEmpty" class="status-msg">
+    Nenhum post cadastrado.
+  </div>
+
+  <section v-else class="postList" aria-labelledby="posts-heading">
     <h2 id="posts-heading" class="sr-only">Últimas postagens</h2>
-    <template v-if="Array.isArray(Posts)">
-      <PostCard v-for="post in Posts" :key="post?.id" :post="post" />
-    </template>
+    <PostCard v-for="post in Posts" :key="post?.id" :post="post" />
   </section>
 </template>
 
 <style scoped lang="scss">
+@use "../assets/scss/_colors.scss" as *;
+
+.status-msg {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: $primary;
+
+  html.dark & {
+    color: $primary_lighter;
+  }
+
+  &.error {
+    color: rgb(211, 75, 75);
+  }
+}
 .sr-only {
   position: absolute;
   width: 1px;

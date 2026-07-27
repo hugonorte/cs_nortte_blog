@@ -40,7 +40,9 @@ jobs:
         env:
           NUXT_PUBLIC_API_BASE_URL: ${{ secrets.NUXT_PUBLIC_API_BASE_URL }}
           NUXT_PUBLIC_SITE_NAME: ${{ secrets.NUXT_PUBLIC_SITE_NAME }}
+          NUXT_PUBLIC_SITE_URL: ${{ secrets.NUXT_PUBLIC_SITE_URL }}
           NUXT_PUBLIC_IMAGES_FOLDER: ${{ secrets.NUXT_PUBLIC_IMAGES_FOLDER }}
+          NUXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${{ secrets.NUXT_PUBLIC_GOOGLE_ANALYTICS_ID }}
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
@@ -65,4 +67,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy .output/public --project-name=admin-nortte-blog
+          # projeto "nortte-blog" é o que serve blog.nortte.com;
+          # --branch é obrigatório aqui porque este job não faz checkout,
+          # sem ele o wrangler publica como preview e a produção fica parada.
+          command: pages deploy .output/public --project-name=nortte-blog --branch=master
