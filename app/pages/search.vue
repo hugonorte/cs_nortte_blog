@@ -44,7 +44,9 @@ const { data: Posts, pending, error } = await useAsyncData<Post[]>('search-posts
         
         <section v-else class="postList" aria-labelledby="posts-heading">
             <h2 id="posts-heading" class="sr-only">Resultados da busca</h2>
-            <PostCard v-for="post in Posts" :key="post.id" :post="post" />
+            <template v-if="Array.isArray(Posts)">
+                <PostCard v-for="post in Posts" :key="post?.id" :post="post" />
+            </template>
         </section>
     </main>
 </template>

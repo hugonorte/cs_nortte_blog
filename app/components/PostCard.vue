@@ -12,7 +12,7 @@ const props = defineProps<{
 
 <template>
     <div class="post">
-        <img :src="`${imgUrl}${post.imagePath}`" :alt="post.title">
+        <img v-if="post?.imagePath" :src="`${imgUrl}${post.imagePath}`" :alt="post?.title">
         <div class="postContent">
             <div>
                 <h3>{{ post.title }}</h3>

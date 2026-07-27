@@ -11,7 +11,9 @@ const { data: Posts } = await useAsyncData<Post[]>('posts-published', () => fetc
 <template>
   <section class="postList" aria-labelledby="posts-heading">
     <h2 id="posts-heading" class="sr-only">Últimas postagens</h2>
-    <PostCard v-for="post in Posts" :key="post.id" :post="post" />
+    <template v-if="Array.isArray(Posts)">
+      <PostCard v-for="post in Posts" :key="post?.id" :post="post" />
+    </template>
   </section>
 </template>
 
