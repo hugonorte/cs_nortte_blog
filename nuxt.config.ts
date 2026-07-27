@@ -7,14 +7,14 @@ export default defineNuxtConfig({
       ]
     }
   },
-  ssr: true,
+  ssr: false,
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   site: {
-    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://nortteblog.net',
-    name: process.env.NUXT_PUBLIC_SITE_NAME || 'Nortte Blog',
-    description: 'Nortte Blog - Artigos e Conhecimento',
-    defaultLocale: 'pt-BR', // Assuming Portuguese based on the project name
+    url: process.env.NUXT_PUBLIC_SITE_URL,
+    name: process.env.NUXT_PUBLIC_SITE_NAME,
+    description: 'Nortte Blog',
+    defaultLocale: 'pt-BR',
   },
   modules: [
     '@nuxt/fonts',
