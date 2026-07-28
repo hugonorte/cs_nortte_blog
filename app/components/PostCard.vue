@@ -47,7 +47,7 @@ html.dark .postContent {
     flex-direction: column;
     gap: 1rem;
     width: clamp(260px, 20vw, 270px);
-    border: 1px solid #d9ded9;
+    border: 1px solid #3a4a55;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
