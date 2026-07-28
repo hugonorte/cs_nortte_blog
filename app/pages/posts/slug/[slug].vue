@@ -6,7 +6,9 @@ import type { PostContent as FetchedPost, Footnote, BibliographicReference } fro
 import { fetchPostContentBySlug } from '../../../api/posts/get'
 import { fetchFootnotesByPostId } from '../../../api/footnote/get'
 import { fetchBibliographicReferencesByPostId } from '../../../api/bibliographicReference/get'
-import { computed } from 'vue';
+import { computed, watch, nextTick } from 'vue';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github-dark.css';
 import { formatDate } from '../../../utils/date';
 
 const route = useRoute();
@@ -91,6 +93,25 @@ if (FetchedPost.value) {
         })
     ])
 }
+
+watch(FetchedPost, async (newPost) => {
+    if (newPost && import.meta.client) {
+        await nextTick();
+        setTimeout(() => {
+            document.querySelectorAll('.main_text pre code').forEach((block) => {
+                if (!block.classList.contains('hljs')) {
+                    if (block.className && block.className.includes('language-')) {
+                        hljs.highlightElement(block as HTMLElement);
+                    } else {
+                        const result = hljs.highlightAuto(block.textContent || '');
+                        block.innerHTML = result.value;
+                        block.classList.add('hljs');
+                    }
+                }
+            });
+        }, 100);
+    }
+}, { immediate: true });
 </script>
 
 <template>

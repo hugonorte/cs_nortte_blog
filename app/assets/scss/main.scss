@@ -141,6 +141,35 @@ main {
                     html.dark & {
                         color: color-mix($post_text, white 60%);
                     }
+
+                    code {
+                        background-color: #e5e7eb;
+                        color: #cf222e;
+                        padding: 0.2rem 0.4rem;
+                        border-radius: 4px;
+                        font-family: monospace;
+                        font-size: 0.9em;
+
+                        html.dark & {
+                            background-color: #374151;
+                            color: #ff7b72;
+                        }
+                    }
+                }
+
+                pre {
+                    background-color: #0d1117;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    overflow-x: auto;
+                    margin: 1rem 0;
+                    
+                    code {
+                        font-family: 'Courier New', Courier, monospace;
+                        font-size: 0.9rem;
+                        padding: 0;
+                        
+                    }
                 }
 
                 blockquote {
