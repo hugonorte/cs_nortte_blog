@@ -24,6 +24,8 @@ const props = defineProps<{
 </template>
 
 <style scoped lang="scss">
+@use "sass:color";
+
 html.dark .postContent {
     h3 {
         color: #b3c9de ;
@@ -97,8 +99,7 @@ html.dark .postContent {
             text-align: center;
 
             &:hover {
-                background: #095907;
-                background: linear-gradient(70deg, rgba(9, 89, 7, 1) 0%, rgba(78, 115, 71, 1) 10%, rgba(21, 69, 6, 1) 100%);
+                background: $primary;
             }
         }
 
