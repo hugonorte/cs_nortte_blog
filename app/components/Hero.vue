@@ -1,7 +1,7 @@
 <template>
   <section class="hero_container" aria-label="Destaque">
       <h1>
-          Guardando dicas, códigos, conceitos agora <br > e consultando sempre.
+          Onde eu guardo dicas, códigos, conceitos <br > e volto de vez em quando para consultar.
       </h1>
     </section>  
 </template>
@@ -10,7 +10,7 @@
 .hero_container {
     padding: clamp(0.8rem, 6vw, 9rem);
     display: flex;
-    height: 60vh;
+    height: 12vh;
     background-color: #00284a; /* Cor de fundo azul escura */
     border-radius: 8px;
     margin: 1rem;
