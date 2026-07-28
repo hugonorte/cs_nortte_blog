@@ -58,10 +58,18 @@ main {
                     color: color-mix($secondary, white 70%);
                 }
             }
+            
+            .author-info {
+                h3{
+                    font-size: 1.5rem;
+                }
+            }
             h3{
                 color: $primary_lighter;
                 margin-bottom:0;
                 font-size: 1.888rem;
+
+                
 
                 html.dark & {
                     color: color-mix($post_author, white 70%);
@@ -114,7 +122,6 @@ main {
                 line-height: 1.6;
                 font-size: 1.1rem;
                 color: $primary;
-
 
                 html.dark & {
                     h1, h2, h3, h4, li {
