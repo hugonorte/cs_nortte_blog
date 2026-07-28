@@ -109,7 +109,7 @@ const currentYear = computed(() => new Date().getFullYear())
     span {
         background-color: #013236;
         width: 2px;
-        min-height: 170px;
+        min-height: 100px;
         display: block;
 
     }
