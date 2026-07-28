@@ -74,6 +74,7 @@ function handleSearch() {
 
 <style scoped lang="scss">
 @use "../assets/scss/_colors.scss" as *;
+@use "sass:color";
 
 html.light header {
     .logo {
@@ -86,8 +87,6 @@ html.light header {
     }
 }
 html.dark header {
-    
-
         nav {
             a {
                 &:link {
@@ -102,14 +101,13 @@ html.dark header {
                     color: #4a94de;
                 }
 
-                &:hover {
-                    color: #868fef;
+                :hover {
+                    color: #ef86ca;
                 }
             }
 
             .logo-text {
                 font-family: 'Science Gothic', sans-serif;
-                color: rgb(186, 14, 14);
                 font-size: 1.5rem;
                 font-weight: 700;
             }
@@ -149,6 +147,10 @@ html.dark header {
                             color: $primary;
                             font-weight: bold;
                             font-size: 18px;
+
+                            html.dark &:hover {
+                                color: color.mix($secondary, $white, 40%);
+                            }
 
                             &:hover {
                                 color: $primary_darker;
