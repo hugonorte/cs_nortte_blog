@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-    layout: 'home'
+    layout: 'post'
 });
 import type { PostContent as FetchedPost, Footnote, BibliographicReference } from '../../../types/models'
 import { fetchPostContentBySlug } from '../../../api/posts/get'
@@ -8,12 +8,9 @@ import { fetchFootnotesByPostId } from '../../../api/footnote/get'
 import { fetchBibliographicReferencesByPostId } from '../../../api/bibliographicReference/get'
 import { computed } from 'vue';
 import { formatDate } from '../../../utils/date';
-import { buildImageUrl } from '../../../utils/images';
 
 const route = useRoute();
 const config = useRuntimeConfig();
-
-const imgUrl = config.public.publicImagesFolder;
 
 const { data, status, error } = await useAsyncData(`post-${route.params.slug}`, async () => {
     const slug = route.params.slug as string;
@@ -59,8 +56,6 @@ const socialNetworkBaseUrls: Record<string, string> = {
     Bluesky: 'https://bsky.app/profile/',
 };
 
-const imageSrc = computed(() => buildImageUrl(imgUrl, FetchedPost.value?.imagePath));
-
 const socialLink = computed(() => {
     const network = FetchedPost.value?.author_preferred_social_network;
     const username = FetchedPost.value?.author_preferred_social_network_username;
@@ -76,7 +71,7 @@ if (FetchedPost.value) {
         ogTitle: FetchedPost.value.title,
         description: FetchedPost.value.tldr,
         ogDescription: FetchedPost.value.tldr,
-        ogImage: imageSrc.value,
+        ogImage: FetchedPost.value.imagePath,
         twitterCard: 'summary_large_image',
         articleAuthor: [FetchedPost.value.author_name || ''],
         articlePublishedTime: FetchedPost.value.created_at ? String(FetchedPost.value.created_at) : undefined,
@@ -85,7 +80,7 @@ if (FetchedPost.value) {
     useSchemaOrg([
         defineArticle({
             headline: FetchedPost.value.title,
-            image: imageSrc.value,
+            image: FetchedPost.value.imagePath,
             author: [
                 {
                     name: FetchedPost.value.author_name,
@@ -103,8 +98,8 @@ if (FetchedPost.value) {
         <article v-if="FetchedPost" class="blog-post">
             <header>
                 <h1>{{ FetchedPost.title }}</h1>
-                <figure v-if="imageSrc" class="featured-image">
-                    <img :src="imageSrc" :alt="FetchedPost.title">
+                <figure v-if="FetchedPost.imagePath" class="featured-image">
+                    <img :src="FetchedPost.imagePath" :alt="FetchedPost.title">
                     <figcaption>Imagem ilustrativa</figcaption>
                 </figure>
                 
@@ -114,9 +109,7 @@ if (FetchedPost.value) {
                         <p class="author-bio">{{ FetchedPost.author_bio }}</p>
                         <p class="social-links">
                             <strong>{{ FetchedPost.author_preferred_social_network }}:</strong> 
-                            <a :href="socialLink" target="_blank" rel="noopener noreferrer">
                                 @{{ FetchedPost.author_preferred_social_network_username }}
-                            </a>
                         </p>
                     </address>
                     <p class="publish-date">

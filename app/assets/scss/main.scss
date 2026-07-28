@@ -55,7 +55,7 @@ main {
                 color: $post_title;
 
                 html.dark & {
-                    color: color-mix($post_title, white 70%);
+                    color: color-mix($secondary, white 70%);
                 }
             }
             h3{
@@ -114,6 +114,13 @@ main {
                 line-height: 1.6;
                 font-size: 1.1rem;
                 color: $primary;
+
+
+                html.dark & {
+                    h1, h2, h3, h4, li {
+                        color: color-mix($post_text, white 60%);
+                    }
+                }
 
                 h2, h3 {
                     color: $primary;

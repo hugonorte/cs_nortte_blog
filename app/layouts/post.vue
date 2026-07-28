@@ -14,3 +14,13 @@ useHead({
 })
 </script>
 
+<template>
+  <div class="layout-wrapper">
+    <HeaderView />
+    <main>
+      <slot />
+    </main>
+    <FooterView />
+  </div>
+</template>
+
