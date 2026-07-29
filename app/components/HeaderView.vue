@@ -66,6 +66,9 @@ function handleSearch() {
                     <!-- Honeypot Field -->
                     <input type="text" name="contact_email" v-model="honeypot" tabindex="-1" autocomplete="off" class="sr-only" aria-hidden="true" />
                     <input type="text" v-model="searchQuery" placeholder="Buscar..." class="search-input-full" minlength="3" required />
+                    <button type="submit" class="search-submit" aria-label="Buscar">
+                        <Icon name="i-heroicons-magnifying-glass-20-solid" />
+                    </button>
                 </form>
             </div>
         </Transition>
@@ -195,16 +198,26 @@ html.dark header {
         background: transparent;
         border: none;
 
+        /* Input e botão formam um único controle: sem gap, cantos arredondados
+           só nas pontas externas e altura igual via `align-items: stretch`.
+           `flex-direction` e `gap` precisam ser explícitos para sobrescrever a
+           regra global `form { flex-direction: column; gap: 1rem }` do main.scss. */
         .search-form-full {
             width: 90%;
             max-width: 600px;
             display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 0;
+            align-items: stretch;
 
             .search-input-full {
                 flex: 1;
+                box-sizing: border-box;
                 background: rgba(150, 150, 150, 0.1);
                 border: 1px solid rgba(0, 0, 0, 0.1);
-                border-radius: 8px;
+                border-right: none;
+                border-radius: 8px 0 0 8px;
                 padding: 10px 15px;
                 font-size: 16px;
                 color: inherit;
@@ -214,6 +227,41 @@ html.dark header {
                 html.dark & {
                     background: rgba(255, 255, 255, 0.1);
                     border-color: rgba(255, 255, 255, 0.2);
+                    border-right: none;
+                }
+            }
+
+            .search-submit {
+                flex: none;
+                /* sobrescreve `form button { width: 100% }` do main.scss */
+                width: auto;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 18px;
+                border: 1px solid $primary;
+                border-radius: 0 8px 8px 0;
+                background: $primary;
+                color: $white;
+                font-size: 18px;
+                line-height: 1;
+                cursor: pointer;
+                transition: background-color 0.2s, border-color 0.2s;
+
+                &:hover {
+                    background: $primaryDarkHover;
+                    border-color: $primaryDarkHover;
+                }
+
+                html.dark & {
+                    background: color.mix($primary, $white, 60%);
+                    border-color: color.mix($primary, $white, 60%);
+
+                    &:hover {
+                        background: color.mix($primary, $white, 45%);
+                        border-color: color.mix($primary, $white, 45%);
+                    }
                 }
             }
         }
