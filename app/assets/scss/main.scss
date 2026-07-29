@@ -419,3 +419,19 @@ header {
         }
     }
 }
+
+/* Utilitário global: remove o elemento do fluxo visual mantendo-o no DOM.
+   Usado por headings de leitor de tela e pelo campo honeypot do formulário
+   de busca — por isso não usa `display: none`, que bots ignoram. */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+}
