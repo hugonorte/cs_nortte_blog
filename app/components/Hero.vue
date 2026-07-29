@@ -6,6 +6,7 @@
         alt="" 
         preload 
         fetchpriority="high"
+        unoptimized
       />
       <h1>
           Onde eu guardo dicas, códigos, conceitos <br > e volto de vez em quando para consultar.
