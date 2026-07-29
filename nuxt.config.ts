@@ -24,6 +24,11 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/ui',
   ],
+  // Site é gerado estaticamente (ssr: false + nuxt generate), então não há
+  // servidor Nitro para servir /_ipx/*. As imagens são usadas como estão.
+  image: {
+    provider: 'none'
+  },
   css: ['~/assets/scss/main.scss'],
   colorMode: {
     preference: 'light'
