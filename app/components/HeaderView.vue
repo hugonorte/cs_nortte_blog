@@ -55,6 +55,11 @@ function handleSearch() {
                                 </template>
                             </ClientOnly>
                         </li>
+                        <li>
+                            <a href="https://github.com/hugonorte/cs_nortte_blog" target="_blank" rel="noopener noreferrer" aria-label="Repositório no GitHub" class="github-link">
+                                <Icon name="i-mdi-github" style="font-size: 32px;" />
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -105,7 +110,7 @@ html.dark header {
                 }
 
                 :hover {
-                    color: #ef86ca;
+                    color: color.mix(#4a94de, $white, 40%);
                 }
             }
 
@@ -176,6 +181,22 @@ html.dark header {
                             justify-content: center;
                             color: inherit;
                             font-size: 20px;
+                        }
+
+                        .github-link {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: inherit;
+                            text-decoration: none;
+                            
+                            html.dark &:hover {
+                                color: color.mix($secondary, $white, 70%);
+                            }
+
+                            &:hover {
+                                color: $primary_darker;
+                            }
                         }
                     }
                 }
