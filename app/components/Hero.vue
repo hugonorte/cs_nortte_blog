@@ -1,12 +1,12 @@
 <template>
   <section class="hero_container" aria-label="Destaque">
-      <NuxtImg 
-        src="/img/montagem.avif" 
-        class="hero_bg" 
-        alt="" 
-        preload 
+      <NuxtImg
+        provider="none"
+        src="/img/montagem.avif"
+        class="hero_bg"
+        alt=""
+        preload
         fetchpriority="high"
-        unoptimized
       />
       <h1>
           Onde eu guardo dicas, códigos, conceitos <br > e volto de vez em quando para consultar.
